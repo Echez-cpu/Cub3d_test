@@ -1,3 +1,6 @@
+#include "cub.h"
+
+
 
 void	fill_raycastg_para(int x, t_cast_ray *ray, t_field_of_view *player)
 {
@@ -14,7 +17,7 @@ void	fill_raycastg_para(int x, t_cast_ray *ray, t_field_of_view *player)
 
 
 
-void	initialize_ray_traversal (t_cast_ray *ray,  t_field_of_view camera)
+void	initialize_ray_traversal (t_cast_ray *ray,  t_field_of_view *camera)
 {
 	if (ray->dir_x < 0)
 	{

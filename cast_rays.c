@@ -1,13 +1,19 @@
+
+
+#include "cub.h"
+
+
+
 int generate_rays(t_field_of_view *camera, t_game_data *data)
 {
 	t_cast_ray view_ray;
 	int		i;
 
 	i = 0;
-	view_ray = data->ray;
+	view_ray = data->casted_ray;
 	while (i < data->win_width)
 	{
-		fill_raycastg_para(x, &view_ray, camera);
+		fill_raycastg_para(i, &view_ray, camera);
 		initialize_ray_traversal(&view_ray, camera);
 		step_through_grid(data, &view_ray);
 		compute_wall_visualization(&view_ray, data, camera);
@@ -18,11 +24,11 @@ int generate_rays(t_field_of_view *camera, t_game_data *data)
 	while (y < view_ray.draw_end)
 	{
     		if (view_ray.side == 0)
-        	data->texture_pixels[y][x] = 0xFF0000; // Red for vertical walls
+        	data->texture_pixels[y][i] = 0xFF0000; // Red for vertical walls
     		else
-        	data->texture_pixels[y][x] = 0x00FF00; // Green for horizontal walls
+        	data->texture_pixels[y][i] = 0x00FF00; // Green for horizontal walls
 
-    		data->texture_pixels[y][x] = color;
+    		// data->texture_pixels[y][i] = color;
     		y++;
 }
 		
@@ -65,7 +71,7 @@ void	map_texture_to_ray_hit(t_game_data *data, t_texinfo *txture, t_cast_ray *ra
 	{
 		txture->y = (int)txture->pos & (txture->size - 1);
 		txture->pos += txture->step;
-		color = data->textures[txture->index][txture->size * teture->y + txture->x];
+		color = data->textures[txture->index][txture->size * txture->y + txture->x];
 		if (txture->index == NORTH || txture->index == EAST)
 			color = (color >> 1) & 0x7F7F7F;
 		if (color > 0)

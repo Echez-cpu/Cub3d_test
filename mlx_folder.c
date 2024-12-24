@@ -1,4 +1,8 @@
 
+#include "cub.h"
+
+
+
 void	setup_image(t_game_data *data, t_img *image, int width, int height)
 {
 	reset_img_struct(image);
@@ -21,7 +25,7 @@ void	reset_img_struct(t_img *img)
 }
 
 
- void	set_pixel_color(t_data *data, t_img *image, int x, int y)
+ void	set_pixel_color(t_game_data *data, t_img *image, int x, int y)
 {
 	if (data->texture_pixels[y][x] > 0)
 		write_color_2_pixel(image, x, y, data->texture_pixels[y][x]);

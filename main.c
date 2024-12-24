@@ -1,26 +1,30 @@
 
 
 
+
+#include "cub.h"
+
 int	main(int argc, char **argv)
 {
-	t_game_data	data;
+	t_game_data	info;
 
-	1 if (argc != 2)
-	//	return (error_message));
-	
-     setup_game_state(&data);
+	if (argc != 2)
+	{
+		ft_putendl_fd("Error: Invalid number of arguments\n", 2);
+		return (1);
+	}
+	if (validity_check(&info, argv) != 0) // change zero(0) to LIE
+		return (1);
 
-  3 //A function that processes the map file passed as argv[1].
- //function that processes the map file passed as argv[1].
-//It opens and reads the map file.
-//Verifies that the map adheres to rules (e.g., surrounded by walls, valid characters).
-//Updates data with map data (grid layout, dimensions, etc.)
+	  
+     setup_game_state(&info);
+
+
+ initialize_mlx(&info);
   
- initialize_mlx(&data);
-  
- configure_textures(&data);
- draw_graphics(&data);
-  setup_input_hooks(&data);
+ configure_textures(&info);
+ draw_graphics(&info);
+ setup_input_hooks(&info);
 //Performs the initial render of the game view.
 //Casts rays for every column of pixels on the screen.
 //Draws walls, ceilings, and floors based on the player’s current position and direction.
@@ -28,7 +32,7 @@ int	main(int argc, char **argv)
   
   //Sets up hooks or listeners for player input (e.g., keyboard or mouse events).
     
-  mlx_loop_hook(data.mlx, update_graphics, &data);
-	mlx_loop(data.mlx);
+  mlx_loop_hook(info.mlx, update_graphics, &info);
+	mlx_loop(info.mlx);
 	return (0);
 }

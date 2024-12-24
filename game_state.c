@@ -1,3 +1,8 @@
+
+#include "cub.h"
+
+
+
 void	setup_game_state(t_game_data *data)
 {
 	data->mlx = NULL;
@@ -64,7 +69,7 @@ void	init_txtureinfo(t_texinfo *textures)
 void	init_empty_image(t_img *img)
 {
 	img->img = NULL;
-	img->addr = NULL;
+	img->address = NULL;
 	img->pixel_bits = 0;
 	img->size_line = 0;
 	img->endian = 0;

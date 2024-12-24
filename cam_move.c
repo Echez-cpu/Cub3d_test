@@ -1,3 +1,9 @@
+
+
+#include "cub.h"
+
+
+
 int	move_if_valid(t_game_data *data, double i, double j)
 {
 	int	shifted;
@@ -39,7 +45,7 @@ bool	is_position_inside_map(t_game_data *data, double x, double y)
 
 // Keeps the position within the bottom boundary with a smaller padding of 0.25.
 
- bool	is_position_free_of_walls(t_data *data, double x, double y)
+ bool	is_position_free_of_walls(t_game_data *data, double x, double y)
 {
 	if (data->map[(int)y][(int)x] == '0')
 		return (true);

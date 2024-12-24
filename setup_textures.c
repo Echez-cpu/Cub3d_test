@@ -1,3 +1,7 @@
+#include "cub.h"
+
+
+
 
 void	configure_textures(t_game_data *data)
 {

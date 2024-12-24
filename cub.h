@@ -1,3 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/24 17:53:04 by pokpalae          #+#    #+#             */
+/*   Updated: 2024/12/24 21:43:20 by pokpalae         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+# ifndef CUB_H
+# define CUB_H
+
+# ifndef O_DIRECTORY
+#  define O_DIRECTORY 00200000
+# endif
+
 # include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -7,7 +26,7 @@
 # include <unistd.h>
 # include <X11/keysym.h>
 # include <X11/X.h>
-# include "libft.h"
+# include "libft/libft.h"
 # include "mlx.h"
 # include <errno.h>
 # include <fcntl.h>
@@ -20,6 +39,7 @@
 
 # define TEXTURE_SIZE 64
 # define MOVESPEED 0.0525
+# define TURN_RATE 0.515
 
 #define KEY_ESC		65307
 #define	KEY_PRESS	2
@@ -52,6 +72,17 @@ enum e_texture_index
 
 // structures
 
+
+typedef struct s_mapinfo
+{
+	int			fd;
+	int			line_count;
+	char		*path;
+	char		**file;
+	int			height;
+	int			width;
+	int			end_of_map_index;
+}	t_mapinfo;
 
 typedef struct s_img
 {
@@ -125,6 +156,7 @@ typedef struct s_game_data
 	char		**map;
 	t_field_of_view	first_person;
 	t_cast_ray		casted_ray;
+	t_mapinfo	mapinfo;
 	int			**texture_pixels;
 	int			**textures;
 	t_texinfo	texinfo;
@@ -134,13 +166,47 @@ typedef struct s_game_data
 
 
 
-typedef struct s_mapinfo
-{
-	int			fd;
-	int			line_count;
-	char		*path;
-	char		**file;
-	int			height;
-	int			width;
-	int			end_of_map_index;
-}	t_mapinfo;
+// functions
+int	validity_check(t_game_data *data, char **argv);
+int	end_game(t_game_data *data);
+
+// ray casting functions
+int	update_graphics(t_game_data *data);
+void	initialize_mlx(t_game_data *data);
+
+int	move_if_valid(t_game_data *data, double i, double j);
+int	apply_turn(t_game_data *data, double turn_rate);
+bool	is_position_inside_map(t_game_data *data, double x, double y);
+int	rotate_camera(t_game_data *data, double rotdir);
+bool	is_position_free_of_walls(t_game_data *data, double x, double y);
+
+int generate_rays(t_field_of_view *camera, t_game_data *data);
+
+void	map_texture_to_ray_hit(t_game_data *data, t_texinfo *txture, t_cast_ray *ray, int x);
+
+void	set_texture_direction(t_game_data *data, t_cast_ray *ray);
+int	update_graphics(t_game_data *data);
+void	free_things(void **tab);
+void	setup_game_state(t_game_data *data);
+void	paint_frame(t_game_data *data);
+void	draw_graphics(t_game_data *data);
+void	allocate_pixel_memory(t_game_data *data);
+
+void	setup_input_hooks(t_game_data *data);
+int	camera_spin(t_game_data *data);
+
+int	reset_keyPress_flags(int key, t_game_data *press);
+int	key_press(int key, t_game_data *press);
+void	setup_image(t_game_data *data, t_img *image, int width, int height);
+void	reset_img_struct(t_img *img);
+void	set_pixel_color(t_game_data *data, t_img *image, int x, int y);
+void	write_color_2_pixel(t_img *image, int x, int y, int color);
+void	configure_textures(t_game_data *data);
+int	*get_texture_from_xpm(t_game_data *data, char *path);
+void	fill_raycastg_para(int x, t_cast_ray *ray, t_field_of_view *player);
+void	initialize_ray_traversal (t_cast_ray *ray,  t_field_of_view *camera);
+void	zero_out_ray(t_cast_ray *ray);
+void step_through_grid(t_game_data *data, t_cast_ray *ray);
+void	compute_wall_visualization(t_cast_ray *ray, t_game_data *data, t_field_of_view *camera);
+
+#endif

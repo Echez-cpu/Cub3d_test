@@ -1,4 +1,9 @@
 
+
+#include "cub.h"
+
+
+
 int	camera_spin(t_game_data *data)
 {
 	int	moved;
@@ -79,7 +84,7 @@ int	rotate_camera(t_game_data *data, double rotdir)
 
  int	apply_turn(t_game_data *data, double turn_rate)
 {
-	t_field_of_view;	*cam;
+	t_field_of_view		*cam;
 	double		tmp_i;
 
 	cam = &data->first_person;
