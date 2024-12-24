@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_info_3.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 17:37:31 by junhhong          #+#    #+#             */
-/*   Updated: 2024/12/24 22:54:34 by pokpalae         ###   ########.fr       */
+/*   Created: 2023/11/16 16:27:58 by pokpalae          #+#    #+#             */
+/*   Updated: 2023/11/30 19:51:21 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub.h"
+#include "libft.h"
 
-int	extract_map_data(t_game_data *data, char **map)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int	i;
-	int	j;
-	int	result;
+	const unsigned char	*s1_help;
+	const unsigned char	*s2_help;
 
-	i = 0;
-	while (map[i])
+	s1_help = s1;
+	s2_help = s2;
+	while (n > 0)
 	{
-		j = 0;
-		while (map[i][j])
+		if (*s1_help != *s2_help)
 		{
-			result = ignore_whitespaces_get_info(data, map, i, j);
-			if (result == BREAK)
-				break ;
-			else if (result == FAIL)
-				return (1);
-			else if (result == SUCCESS)
-				return (0);
-			j++;
+			return (*s1_help - *s2_help);
 		}
-		i++;
+		s1_help++;
+		s2_help++;
+		n--;
 	}
-	return (SUCCESS);
+	return (0);
 }

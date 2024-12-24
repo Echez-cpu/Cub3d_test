@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_info_3.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 17:37:31 by junhhong          #+#    #+#             */
-/*   Updated: 2024/12/24 22:54:34 by pokpalae         ###   ########.fr       */
+/*   Created: 2023/11/17 15:46:21 by pokpalae          #+#    #+#             */
+/*   Updated: 2023/11/30 19:52:37 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub.h"
+#include "libft.h"
+#include <stdlib.h>
 
-int	extract_map_data(t_game_data *data, char **map)
+char	*ft_strdup(char *s1)
 {
-	int	i;
-	int	j;
-	int	result;
+	size_t	i;
+	size_t	len;
+	char	*dub;
+	char	*dup_ptr;
 
+	len = 0;
+	while (s1[len] != '\0')
+		len++;
+	dub = (char *)malloc((len + 1) * sizeof(char));
+	dup_ptr = dub;
+	if (dub == ((void *)0))
+		return ((void *)0);
 	i = 0;
-	while (map[i])
+	while (s1[i] != '\0')
 	{
-		j = 0;
-		while (map[i][j])
-		{
-			result = ignore_whitespaces_get_info(data, map, i, j);
-			if (result == BREAK)
-				break ;
-			else if (result == FAIL)
-				return (1);
-			else if (result == SUCCESS)
-				return (0);
-			j++;
-		}
+		*dup_ptr = s1[i];
 		i++;
+		dup_ptr++;
 	}
-	return (SUCCESS);
+	*dup_ptr = '\0';
+	return (dub);
 }

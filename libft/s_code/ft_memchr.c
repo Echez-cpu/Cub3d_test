@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_info_3.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 17:37:31 by junhhong          #+#    #+#             */
-/*   Updated: 2024/12/24 22:54:34 by pokpalae         ###   ########.fr       */
+/*   Created: 2023/11/16 15:40:10 by pokpalae          #+#    #+#             */
+/*   Updated: 2023/11/30 19:51:14 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub.h"
+#include "libft.h"
 
-int	extract_map_data(t_game_data *data, char **map)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int	i;
-	int	j;
-	int	result;
+	const unsigned char	*ptr;
 
-	i = 0;
-	while (map[i])
+	ptr = s;
+	while (n > 0 && *ptr != (unsigned char)c)
 	{
-		j = 0;
-		while (map[i][j])
-		{
-			result = ignore_whitespaces_get_info(data, map, i, j);
-			if (result == BREAK)
-				break ;
-			else if (result == FAIL)
-				return (1);
-			else if (result == SUCCESS)
-				return (0);
-			j++;
-		}
-		i++;
+		ptr++;
+		n--;
 	}
-	return (SUCCESS);
+	if (n > 0)
+	{
+		return ((void *)ptr);
+	}
+	else
+	{
+		return ((void *)0);
+	}
 }

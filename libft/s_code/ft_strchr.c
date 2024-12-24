@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_info_3.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 17:37:31 by junhhong          #+#    #+#             */
-/*   Updated: 2024/12/24 22:54:34 by pokpalae         ###   ########.fr       */
+/*   Created: 2023/11/16 12:36:15 by pokpalae          #+#    #+#             */
+/*   Updated: 2023/11/30 19:52:26 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub.h"
+#include "libft.h"
 
-int	extract_map_data(t_game_data *data, char **map)
+char	*ft_strchr(const char *s, int c)
 {
-	int	i;
-	int	j;
-	int	result;
-
-	i = 0;
-	while (map[i])
+	while (*s != '\0')
 	{
-		j = 0;
-		while (map[i][j])
+		if (*s == (char)c)
 		{
-			result = ignore_whitespaces_get_info(data, map, i, j);
-			if (result == BREAK)
-				break ;
-			else if (result == FAIL)
-				return (1);
-			else if (result == SUCCESS)
-				return (0);
-			j++;
+			return ((char *)s);
 		}
-		i++;
+		s++;
 	}
-	return (SUCCESS);
+	if ((char)c == '\0')
+	{
+		return ((char *)s);
+	}
+	return ((void *)0);
 }

@@ -6,7 +6,7 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 17:53:04 by pokpalae          #+#    #+#             */
-/*   Updated: 2024/12/24 21:43:20 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/24 23:07:25 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # include <unistd.h>
 # include <X11/keysym.h>
 # include <X11/X.h>
-# include "libft/libft.h"
+# include "libft/includes/libft.h"
 # include "mlx.h"
 # include <errno.h>
 # include <fcntl.h>

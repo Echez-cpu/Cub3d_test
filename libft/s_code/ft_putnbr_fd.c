@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_info_3.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 17:37:31 by junhhong          #+#    #+#             */
-/*   Updated: 2024/12/24 22:54:34 by pokpalae         ###   ########.fr       */
+/*   Created: 2023/11/30 12:11:29 by pokpalae          #+#    #+#             */
+/*   Updated: 2023/11/30 19:52:04 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub.h"
+#include "libft.h"
+#include <unistd.h>
 
-int	extract_map_data(t_game_data *data, char **map)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int	i;
-	int	j;
-	int	result;
+	long	hold;
 
-	i = 0;
-	while (map[i])
+	hold = n;
+	if (hold < 0)
 	{
-		j = 0;
-		while (map[i][j])
-		{
-			result = ignore_whitespaces_get_info(data, map, i, j);
-			if (result == BREAK)
-				break ;
-			else if (result == FAIL)
-				return (1);
-			else if (result == SUCCESS)
-				return (0);
-			j++;
-		}
-		i++;
+		ft_putchar_fd('-', fd);
+		hold *= -1;
 	}
-	return (SUCCESS);
+	if (hold >= 10)
+	{
+		ft_putnbr_fd(hold / 10, fd);
+		ft_putchar_fd(hold % 10 + '0', fd);
+	}
+	else
+		ft_putchar_fd(hold + '0', fd);
 }

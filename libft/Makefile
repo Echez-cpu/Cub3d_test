@@ -3,91 +3,104 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mcombeau <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/11/22 13:48:30 by mcombeau          #+#    #+#              #
-#    Updated: 2021/12/02 13:26:19 by mcombeau         ###   ########.fr        #
+#    Created: 2024/03/12 15:46:40 by pokpalae          #+#    #+#              #
+#    Updated: 2024/12/24 23:12:22 by pokpalae         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
-CC = gcc
-CFLAGS = -Wall -Werror -Wextra -g3
-AR = ar rcs
-SRC = ft_isalpha \
-	ft_isdigit \
-	ft_isalnum \
-	ft_isascii \
-	ft_isprint \
-	ft_isspace \
-	ft_ishexdigit \
-	ft_strlen \
-	ft_memset \
-	ft_bzero \
-	ft_memcpy \
-	ft_memmove \
-	ft_strlcpy \
-	ft_strlcat \
-	ft_toupper \
-	ft_tolower \
-	ft_strchr \
-	ft_strrchr \
-	ft_strncmp \
-	ft_memchr \
-	ft_memcmp \
-	ft_strnstr \
-	ft_atoi \
-	ft_calloc \
-	ft_strdup \
-	ft_substr \
-	ft_strjoin \
-	ft_strtrim \
-	ft_split \
-	ft_itoa \
-	ft_strmapi \
-	ft_striteri \
-	ft_putchar_fd \
-	ft_putstr_fd \
-	ft_putendl_fd \
-	ft_putnbr_fd \
-	get_next_line \
-	gnl_utils 
-BONUS_SRC = ft_lstnew \
-	ft_lstadd_front \
-	ft_lstsize \
-	ft_lstlast \
-	ft_lstadd_back \
-	ft_lstdelone \
-	ft_lstclear \
-	ft_lstiter \
-	ft_lstmap  
 
-SRCS = $(addsuffix .c, $(SRC))
-OBJS = $(addsuffix .o, $(SRC))
-BONUS_SRCS = $(addsuffix .c, $(BONUS_SRC))
-BONUS_OBJS = $(addsuffix .o, $(BONUS_SRC))
+NAME			= libft.a
 
-.c.o: $(SRCS) $(BONUS_SRCS)
-	@$(CC) $(CFLAGS) -c -o $@ $<
+INC				= includes/
+SRC_DIR			= s_code/
+OBJ_DIR			= obj/
 
-$(NAME): $(OBJS)
-	@$(AR) $@ $^
-	@echo "Libft ready."
 
-bonus: $(OBJS) $(BONUS_OBJS)
-	@$(AR) $(NAME) $^
-	@echo "Libft + bonus ready."
+CC				= gcc
+CFLAGS			= -Wall -Wextra -Werror -I
+RM				= rm -f
+AR				= ar rcs
 
-all: $(NAME)
+FTIS_DIR		=	$(SRC_DIR)ft_isalnum.c \
+					$(SRC_DIR)ft_isalpha.c \
+					$(SRC_DIR)ft_isascii.c \
+					$(SRC_DIR)ft_isdigit.c \
+					$(SRC_DIR)ft_isprint.c 
+
+FTMEM_DIR		=	$(SRC_DIR)ft_bzero.c \
+					$(SRC_DIR)ft_calloc.c \
+					$(SRC_DIR)ft_memchr.c \
+					$(SRC_DIR)ft_memcmp.c \
+					$(SRC_DIR)ft_memmove.c \
+					$(SRC_DIR)ft_memset.c 
+
+FTPUT_DIR		=	$(SRC_DIR)ft_putchar_fd.c \
+					$(SRC_DIR)ft_putendl_fd.c \
+					$(SRC_DIR)ft_putnbr_fd.c \
+					$(SRC_DIR)ft_putstr_fd.c 
+
+FTTO_DIR		=	$(SRC_DIR)ft_atoi.c \
+					$(SRC_DIR)ft_itoa.c \
+					$(SRC_DIR)ft_tolower.c \
+					$(SRC_DIR)ft_toupper.c
+
+FTSTR_DIR		=	$(SRC_DIR)ft_split.c \
+					$(SRC_DIR)ft_strchr.c \
+					$(SRC_DIR)ft_strdup.c \
+					$(SRC_DIR)ft_striteri.c \
+					$(SRC_DIR)ft_strjoin.c \
+					$(SRC_DIR)ft_strlcat.c \
+					$(SRC_DIR)ft_strlcpy.c \
+					$(SRC_DIR)ft_strlen.c \
+					$(SRC_DIR)ft_strmapi.c \
+					$(SRC_DIR)ft_strncmp.c \
+					$(SRC_DIR)ft_strnstr.c \
+					$(SRC_DIR)ft_strrchr.c \
+					$(SRC_DIR)ft_strtrim.c \
+					$(SRC_DIR)ft_substr.c 
+
+FTLST_DIR		=	$(SRC_DIR)ft_lstadd_back.c \
+					$(SRC_DIR)ft_lstadd_front.c \
+					$(SRC_DIR)ft_lstclear.c \
+					$(SRC_DIR)ft_lstdelone.c \
+					$(SRC_DIR)ft_lstiter.c \
+					$(SRC_DIR)ft_lstlast.c \
+					$(SRC_DIR)ft_lstmap.c \
+					$(SRC_DIR)ft_lstnew.c \
+					$(SRC_DIR)ft_lstsize.c \
+					$(SRC_DIR)get_next_line.c\
+					$(SRC_DIR)gnl_utils.c
+
+FTPRINTF_DIR	=	$(SRC_DIR)ft_printf/ft_printf.c \
+					$(SRC_DIR)ft_printf/ft_printf_int_decilm.c \
+					$(SRC_DIR)ft_printf/ft_printf_num_hex.c \
+					$(SRC_DIR)ft_printf/ft_printf_pointer.c \
+					$(SRC_DIR)ft_printf/ft_printf_unsigned_int.c
+
+
+SRC 			= $(FTIS_DIR) $(FTMEM_DIR) $(FTPUT_DIR) $(FTTO_DIR) $(FTTO_DIR) $(FTSTR_DIR) $(FTLST_DIR) $(FTPRINTF_DIR)
+
+
+OBJ 			= $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRC))
+
+all: 			$(NAME)
+
+$(NAME): 		$(OBJ)
+				@$(AR) $(NAME) $(OBJ)
+
+$(OBJ_DIR)%.o:	$(SRC_DIR)%.c
+				@mkdir -p $(@D)
+				@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 clean:
-	@rm -f *.o
-	@echo "Libft: removed .o object files."
+				@$(RM) -r $(OBJ_DIR)
+				@$(RM) .cache_exists
 
-fclean: clean
-	@rm -f $(NAME)
-	@echo "Libft: removed libft.a file."
+fclean: 		clean
+				@$(RM) $(NAME)
 
-re: clean all
+re: 			fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: 		all clean fclean re

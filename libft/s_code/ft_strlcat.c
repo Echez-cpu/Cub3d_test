@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_info_3.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 17:37:31 by junhhong          #+#    #+#             */
-/*   Updated: 2024/12/24 22:54:34 by pokpalae         ###   ########.fr       */
+/*   Created: 2023/11/15 21:51:06 by pokpalae          #+#    #+#             */
+/*   Updated: 2023/12/01 15:29:05 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub.h"
+#include "libft.h"
 
-int	extract_map_data(t_game_data *data, char **map)
+size_t	ft_strlcat(char *dest, char *src, size_t dstzsize)
 {
-	int	i;
-	int	j;
-	int	result;
+	size_t	dest_len;
+	size_t	src_len;
+	size_t	copy_len;
+	size_t	i;
 
-	i = 0;
-	while (map[i])
+	dest_len = ft_strlen(dest);
+	src_len = ft_strlen(src);
+	copy_len = dstzsize - dest_len - 1;
+	if (dest_len >= dstzsize)
 	{
-		j = 0;
-		while (map[i][j])
-		{
-			result = ignore_whitespaces_get_info(data, map, i, j);
-			if (result == BREAK)
-				break ;
-			else if (result == FAIL)
-				return (1);
-			else if (result == SUCCESS)
-				return (0);
-			j++;
-		}
+		return (dstzsize + src_len);
+	}
+	i = 0;
+	while (i < copy_len && src[i] != '\0')
+	{
+		dest[dest_len + i] = src[i];
 		i++;
 	}
-	return (SUCCESS);
+	dest[dest_len + i] = '\0';
+	return (dest_len + src_len);
 }

@@ -1,39 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_info_3.c                                       :+:      :+:    :+:   */
+/*   ft_printf_int_decilm.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 17:37:31 by junhhong          #+#    #+#             */
-/*   Updated: 2024/12/24 22:54:34 by pokpalae         ###   ########.fr       */
+/*   Created: 2023/12/12 16:28:40 by pokpalae          #+#    #+#             */
+/*   Updated: 2023/12/13 13:35:57 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub.h"
+#include "ft_printf.h"
 
-int	extract_map_data(t_game_data *data, char **map)
+int	ft_putnbr(int n)
 {
-	int	i;
-	int	j;
-	int	result;
+	int		len;
+	char	*number;
 
-	i = 0;
-	while (map[i])
-	{
-		j = 0;
-		while (map[i][j])
-		{
-			result = ignore_whitespaces_get_info(data, map, i, j);
-			if (result == BREAK)
-				break ;
-			else if (result == FAIL)
-				return (1);
-			else if (result == SUCCESS)
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	return (SUCCESS);
+	number = ft_itoa(n);
+	len = ft_put_string(number);
+	free(number);
+	return (len);
 }

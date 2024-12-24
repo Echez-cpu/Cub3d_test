@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_info_3.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 17:37:31 by junhhong          #+#    #+#             */
-/*   Updated: 2024/12/24 22:54:34 by pokpalae         ###   ########.fr       */
+/*   Created: 2023/11/15 16:49:56 by pokpalae          #+#    #+#             */
+/*   Updated: 2023/12/01 17:03:26 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub.h"
+#include "libft.h"
 
-int	extract_map_data(t_game_data *data, char **map)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int	i;
-	int	j;
-	int	result;
+	unsigned char		*destination;
+	const unsigned char	*source;
 
-	i = 0;
-	while (map[i])
+	if (dst == ((void *)0) && src == ((void *)0))
 	{
-		j = 0;
-		while (map[i][j])
-		{
-			result = ignore_whitespaces_get_info(data, map, i, j);
-			if (result == BREAK)
-				break ;
-			else if (result == FAIL)
-				return (1);
-			else if (result == SUCCESS)
-				return (0);
-			j++;
-		}
-		i++;
+		return ((void *)0);
 	}
-	return (SUCCESS);
+	destination = dst;
+	source = src;
+	while (n > 0)
+	{
+		*destination = *source;
+		destination++;
+		source++;
+		n--;
+	}
+	return (dst);
 }

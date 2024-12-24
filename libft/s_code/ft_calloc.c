@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_info_3.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 17:37:31 by junhhong          #+#    #+#             */
-/*   Updated: 2024/12/24 22:54:34 by pokpalae         ###   ########.fr       */
+/*   Created: 2023/11/17 13:04:23 by pokpalae          #+#    #+#             */
+/*   Updated: 2024/12/24 23:07:49 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub.h"
+#include "libft.h"
+#include <stdlib.h>
 
-int	extract_map_data(t_game_data *data, char **map)
+void	*ft_calloc(size_t count, size_t size)
 {
-	int	i;
-	int	j;
-	int	result;
+	size_t	tot_size;
+	void	*ptr;
+	size_t	i;
 
-	i = 0;
-	while (map[i])
+	if (size != 0 && count != 0 && count > SIZE_MAX / size)
 	{
-		j = 0;
-		while (map[i][j])
-		{
-			result = ignore_whitespaces_get_info(data, map, i, j);
-			if (result == BREAK)
-				break ;
-			else if (result == FAIL)
-				return (1);
-			else if (result == SUCCESS)
-				return (0);
-			j++;
-		}
+		return ((void *)0);
+	}
+	tot_size = count * size;
+	ptr = malloc(tot_size);
+	if (ptr == ((void *)0))
+	{
+		return ((void *)0);
+	}
+	i = 0;
+	while (i < tot_size)
+	{
+		((char *)ptr)[i] = 0;
 		i++;
 	}
-	return (SUCCESS);
+	return (ptr);
 }

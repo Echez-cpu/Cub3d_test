@@ -17,7 +17,7 @@ int	main(int argc, char **argv)
 		return (1);
 
 	  
-     setup_game_state(&info);
+ setup_game_state(&info);
 
 
  initialize_mlx(&info);

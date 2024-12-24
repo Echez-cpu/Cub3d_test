@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_info_3.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 17:37:31 by junhhong          #+#    #+#             */
-/*   Updated: 2024/12/24 22:54:34 by pokpalae         ###   ########.fr       */
+/*   Created: 2023/12/03 15:41:26 by pokpalae          #+#    #+#             */
+/*   Updated: 2023/12/03 16:10:42 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub.h"
+#include "libft.h"
 
-int	extract_map_data(t_game_data *data, char **map)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	int	i;
-	int	j;
-	int	result;
+	t_list	*current;
+	t_list	*next;
 
-	i = 0;
-	while (map[i])
+	if (lst == ((void *)0) || del == NULL)
 	{
-		j = 0;
-		while (map[i][j])
-		{
-			result = ignore_whitespaces_get_info(data, map, i, j);
-			if (result == BREAK)
-				break ;
-			else if (result == FAIL)
-				return (1);
-			else if (result == SUCCESS)
-				return (0);
-			j++;
-		}
-		i++;
+		return ;
 	}
-	return (SUCCESS);
+	current = *lst;
+	next = ((void *)0);
+	while (current != NULL)
+	{
+		next = current->next;
+		(*del)(current->content);
+		free(current);
+		current = next;
+	}
+	*lst = ((void *)0);
 }

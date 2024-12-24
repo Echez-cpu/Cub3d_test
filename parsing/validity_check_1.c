@@ -6,7 +6,7 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 15:17:45 by junhhong          #+#    #+#             */
-/*   Updated: 2024/12/24 20:11:14 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/24 22:55:10 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void exit_cleanly(t_game_data *info, int code)
 	if (set_fd(argv[1], true) == FAIL)
 		exit_cleanly(info, 1);
 	load_map_data(argv[1], info);
-	if (get_file_data(info, info->mapinfo.file) == FAIL)
+	if (extract_map_data(info, info->mapinfo.file) == FAIL)
 		return (free_data(info));
 	if (check_map_validity(info, info->map) == FAIL)
 		return (free_data(info));
