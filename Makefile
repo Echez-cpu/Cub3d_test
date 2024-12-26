@@ -19,7 +19,7 @@ SRC		= \
 	cast_rays.c \
 	game_state.c \
 	free_me.c \
-	parsing/cubfile_check.c \
+	parsing/mapfile_check.c \
 	parsing/set_info_1.c \
 	parsing/set_info_2.c \
 	parsing/set_info_3.c \
