@@ -47,14 +47,12 @@ void exit_cleanly(t_game_data *info, int code)
 		exit_cleanly(info, 1);
 	load_map_data(argv[1], info);
 	if (extract_map_data(info, info->mapinfo.file) == FAIL)
-		return (free_data(info));
-	if (check_map_validity(info, info->map) == FAIL)
-		return (free_data(info));
+		return (cleanup_resources(info));   
+	if (verify_map_integrity(info, info->map) == FAIL) // ....
+		return (cleanup_resources(info));
 	if (check_textures_validity(info, &info->texinfo) == FAIL)
-		return (free_data(info));
+		return (cleanup_resources(info));
 	init_player_direction(info);
-	// if (DEBUG_MSG)
-	// 	debug_display_data(info);
 	return (0);
 }
 

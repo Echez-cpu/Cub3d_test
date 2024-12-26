@@ -166,9 +166,15 @@ typedef struct s_game_data
 
 
 
-// functions
+// Parsing functions
 int	validity_check(t_game_data *data, char **argv);
 int	end_game(t_game_data *data);
+int	extract_map_data(t_game_data *data, char **map);
+int	set_floor_ceiling_colors(t_game_data *data, t_texinfo *textures, char *line, int j);
+int	*convert_string_to_rgb(char *line);
+int	*convert_string_to_rgb(char *line);
+int	map_constructor(t_game_data *data, char **file, int i);
+
 
 // ray casting functions
 int	update_graphics(t_game_data *data);

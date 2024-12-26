@@ -13,3 +13,19 @@
 #include "../cub.h"
 
 
+
+
+size_t	find_max_row_width(t_mapinfo *map, int i)
+{
+	size_t	find_max_width;
+
+	find_max_width = ft_strlen(map->file[i]);
+	while (map->file[i])
+	{
+		if (ft_strlen(map->file[i]) > find_max_width)
+			find_max_width = ft_strlen(map->file[i]);
+		i++;
+	}
+	return (find_max_width);
+}
+

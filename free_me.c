@@ -19,6 +19,15 @@ void	free_things(void **tab)
 	}
 }
 
+static void	destroy_map_data(t_game_data *data)
+{
+	if (data->mapinfo.fd > 0)
+		close(data->mapinfo.fd);
+	if (data->mapinfo.file)
+		free_things((void **)data->mapinfo.file);
+	if (data->map)
+		free_things((void **)data->map);
+}
 
 
 
@@ -28,8 +37,8 @@ int	cleanup_resources(t_game_data *info)
 		free_things((void **)info->textures);
 	if (info->texture_pixels)
 		free_things((void **)info->texture_pixels);
-	free_texinfo(&info->texinfo);
-	free_map(info);
+	cleanup_textures(&info->texinfo);
+	destroy_map_data(info);
 	return (1);
 }
 
@@ -50,3 +59,6 @@ int	cleanup_resources(t_game_data *info)
 	if (textures->ceiling)
 		free(textures->ceiling);
 }
+
+
+

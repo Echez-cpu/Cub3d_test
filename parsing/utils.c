@@ -19,6 +19,11 @@ int is_faulty(char *str)
 	return (1);
 }
 
+int is_faulty_3(char *str)
+{
+	ft_putendl_fd(str, 2);
+	return (2);
+}
 
 int is_faulty_2(char *str)
 {
