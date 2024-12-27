@@ -6,7 +6,7 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 15:48:42 by junhhong          #+#    #+#             */
-/*   Updated: 2024/12/24 19:13:53 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/27 03:31:18 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,6 @@ static int	check_xpm(char *path)
 	}
 	return (1);
 }
-
-
-
 
 
 int	set_fd(char *str, bool cub)
