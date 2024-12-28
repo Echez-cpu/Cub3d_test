@@ -48,11 +48,11 @@ void exit_cleanly(t_game_data *info, int code)
 	load_map_data(argv[1], info);
 	if (extract_map_data(info, info->mapinfo.file) == FAIL)
 		return (cleanup_resources(info));   
-	if (verify_map_integrity(info, info->map) == FAIL) // ....
+	if (verify_map_integrity(info, info->map) == FAIL) 
 		return (cleanup_resources(info));
-	if (check_textures_validity(info, &info->texinfo) == FAIL)
+	if (validate_game_assets(info, &info->texinfo) == FAIL)
 		return (cleanup_resources(info));
-	init_player_direction(info);
+	init_camera_angles(info);
 	return (0);
 }
 

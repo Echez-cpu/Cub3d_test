@@ -174,6 +174,10 @@ int	set_floor_ceiling_colors(t_game_data *data, t_texinfo *textures, char *line,
 int	*convert_string_to_rgb(char *line);
 int	*convert_string_to_rgb(char *line);
 int	map_constructor(t_game_data *data, char **file, int i);
+int	inspect_map_characters(t_game_data *data, char **map_grid);
+int	confirm_map_enclosure(t_mapinfo *map, char **map_grid);
+int	locate_cam_and_validate(t_game_data *data, char **map_grid);
+
 
 
 // ray casting functions
@@ -214,5 +218,7 @@ void	initialize_ray_traversal (t_cast_ray *ray,  t_field_of_view *camera);
 void	zero_out_ray(t_cast_ray *ray);
 void step_through_grid(t_game_data *data, t_cast_ray *ray);
 void	compute_wall_visualization(t_cast_ray *ray, t_game_data *data, t_field_of_view *camera);
-
+int	confirm_map_enclosure(t_mapinfo *map, char **map_grid);
+int	is_white_space(char c);
+int	is_spawn_position_valid(t_game_data *data, char **map_grid);
 #endif

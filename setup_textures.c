@@ -17,7 +17,7 @@ void	configure_textures(t_game_data *data)
 {
 	data->textures = ft_calloc(5, sizeof * data->textures);
 	if (!data->textures)
-		// clean and exit
+		exit_cleanly(data, is_faulty("Error: memory allocation failed\n"));
 	data->textures[NORTH] = get_texture_from_xpm(data, data->texinfo.north);
 	data->textures[SOUTH] = get_texture_from_xpm(data, data->texinfo.south);
 	data->textures[EAST] = get_texture_from_xpm(data, data->texinfo.east);
@@ -36,7 +36,7 @@ static int	*get_texture_from_xpm(t_game_data *data, char *path)
 	buffer = ft_calloc(1,
 			sizeof * buffer * data->texinfo.size * data->texinfo.size);
 	if (!buffer)
-		// clean and exit
+		exit_cleanly(data, is_faulty("Error: memory allocation failed\n"));
 	y = 0;
 	while (y < data->texinfo.size)
 	{
