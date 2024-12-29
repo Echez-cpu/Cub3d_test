@@ -84,10 +84,6 @@ void step_through_grid(t_game_data *data, t_cast_ray *ray)
 }
 
 
-
-
-
-
 void	zero_out_ray(t_cast_ray *ray)
 {
 	ray->camera_x = 0;

@@ -26,10 +26,7 @@ int	main(int argc, char **argv)
 
 	  
  setup_game_state(&info);
-
-
  initialize_mlx(&info);
-  
  configure_textures(&info);
  draw_graphics(&info);
  setup_input_hooks(&info);
@@ -40,7 +37,7 @@ int	main(int argc, char **argv)
   
   //Sets up hooks or listeners for player input (e.g., keyboard or mouse events).
     
-  mlx_loop_hook(info.mlx, update_graphics, &info);
+    mlx_loop_hook(info.mlx, update_graphics, &info);
 	mlx_loop(info.mlx);
 	return (0);
 }

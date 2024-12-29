@@ -82,8 +82,6 @@ int	set_floor_ceiling_colors(t_game_data *data, t_texinfo *textures, char *line,
 }
 
 
-
-
  bool	is_non_numeric(char *str)
 {
 	int		i;

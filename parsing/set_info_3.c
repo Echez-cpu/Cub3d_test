@@ -118,5 +118,3 @@ int	extract_map_data(t_game_data *data, char **map)
 	return (SUCCESS);
 }
 
-
-

@@ -65,11 +65,11 @@ int	set_fd(char *str, bool cub)
 	is_faulty("this is a directory\n");
 	fd = open(str, O_RDONLY);
 	if (fd == -1)
-	    is_faulty("Cannot read file. fd is -1\n");
+	   return(is_faulty("Cannot read file. fd is -1\n"));
 	close(fd);
 	if (cub && !extension_check(str))
-	     is_faulty("Not a .cub file\n");
+	     return(is_faulty("Not a .cub file\n"));
 	if(!cub && !check_xpm(str))
-		is_faulty("Not an .xpm file\n");
+		return(is_faulty("Not an .xpm file\n"));
 	return (0);
 }

@@ -13,17 +13,6 @@
 
 #include "cub.h"
 
-void	configure_textures(t_game_data *data)
-{
-	data->textures = ft_calloc(5, sizeof * data->textures);
-	if (!data->textures)
-		exit_cleanly(data, is_faulty("Error: memory allocation failed\n"));
-	data->textures[NORTH] = get_texture_from_xpm(data, data->texinfo.north);
-	data->textures[SOUTH] = get_texture_from_xpm(data, data->texinfo.south);
-	data->textures[EAST] = get_texture_from_xpm(data, data->texinfo.east);
-	data->textures[WEST] = get_texture_from_xpm(data, data->texinfo.west);
-}
-
 
 static int	*get_texture_from_xpm(t_game_data *data, char *path)
 {
@@ -51,4 +40,16 @@ static int	*get_texture_from_xpm(t_game_data *data, char *path)
 	}
 	mlx_destroy_image(data->mlx, tmp.img);
 	return (buffer);
+}
+
+
+void	configure_textures(t_game_data *data)
+{
+	data->textures = ft_calloc(5, sizeof * data->textures);
+	if (!data->textures)
+		exit_cleanly(data, is_faulty("Error: memory allocation failed\n"));
+	data->textures[NORTH] = get_texture_from_xpm(data, data->texinfo.north);
+	data->textures[SOUTH] = get_texture_from_xpm(data, data->texinfo.south);
+	data->textures[EAST] = get_texture_from_xpm(data, data->texinfo.east);
+	data->textures[WEST] = get_texture_from_xpm(data, data->texinfo.west);
 }

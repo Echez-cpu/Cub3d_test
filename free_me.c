@@ -70,6 +70,3 @@ int	cleanup_resources(t_game_data *info)
 	if (textures->ceiling)
 		free(textures->ceiling);
 }
-
-
-

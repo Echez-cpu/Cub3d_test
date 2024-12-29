@@ -201,10 +201,8 @@ void	setup_game_state(t_game_data *data);
 void	paint_frame(t_game_data *data);
 void	draw_graphics(t_game_data *data);
 void	allocate_pixel_memory(t_game_data *data);
-
 void	setup_input_hooks(t_game_data *data);
 int	camera_spin(t_game_data *data);
-
 int	reset_keyPress_flags(int key, t_game_data *press);
 int	key_press(int key, t_game_data *press);
 void	setup_image(t_game_data *data, t_img *image, int width, int height);

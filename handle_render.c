@@ -41,14 +41,14 @@ void	allocate_pixel_memory(t_game_data *data)
 	data->texture_pixels = ft_calloc(data->win_height + 1,
 			sizeof * data->texture_pixels);
 	if (!data->texture_pixels)
-		//clean and exit.
+		exit_cleanly(data, is_faulty("Error: memory allocation failed\n"));
 	i = 0;
 	while (i < data->win_height)
 	{
 		data->texture_pixels[i] = ft_calloc(data->win_width + 1,
 				sizeof * data->texture_pixels);
 		if (!data->texture_pixels[i])
-			//clean and exit
+			exit_cleanly(data, is_faulty("Error: memory allocation failed\n"));
 			i++;
 	}
 }

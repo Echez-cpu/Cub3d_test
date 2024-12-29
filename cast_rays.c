@@ -36,21 +36,6 @@ int generate_rays(t_field_of_view *camera, t_game_data *data)
 }
 
 
-
-void	initialize_mlx(t_game_data *data)
-{
-	data->mlx = mlx_init();
-	if (!data->mlx)
-		// clean and exit
-	data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, "Cub3D");
-	if (!data->win)
-		// clean and exit
-	
-	return ;
-}
-
-
-
 void	map_texture_to_ray_hit(t_game_data *data, t_texinfo *txture, t_cast_ray *ray, int x)
 {
 	int			y;
