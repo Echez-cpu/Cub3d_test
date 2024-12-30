@@ -6,11 +6,11 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 20:50:20 by pokpalae          #+#    #+#             */
-/*   Updated: 2024/12/24 23:17:46 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 16:20:46 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 int	ft_atoi(const char *str)
 {

@@ -6,7 +6,7 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 21:31:23 by pokpalae          #+#    #+#             */
-/*   Updated: 2024/12/27 03:26:53 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 14:19:06 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ void	allocate_pixel_memory(t_game_data *data)
 		data->texture_pixels[i] = ft_calloc(data->win_width + 1,
 				sizeof * data->texture_pixels);
 		if (!data->texture_pixels[i])
+		{
 			exit_cleanly(data, is_faulty("Error: memory allocation failed\n"));
+		}
 			i++;
 	}
 }

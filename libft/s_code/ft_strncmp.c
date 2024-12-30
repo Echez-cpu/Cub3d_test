@@ -6,11 +6,11 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 14:35:15 by pokpalae          #+#    #+#             */
-/*   Updated: 2023/12/01 11:42:47 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 16:23:39 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

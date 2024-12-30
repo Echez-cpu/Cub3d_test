@@ -6,11 +6,11 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 14:56:33 by pokpalae          #+#    #+#             */
-/*   Updated: 2023/11/30 20:05:49 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 16:23:49 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 #include <stdlib.h>
 
 static char	*ft_strncpy(char *dest, const char *src, unsigned int n);

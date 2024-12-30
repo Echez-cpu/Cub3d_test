@@ -6,7 +6,7 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 15:20:34 by junhhong          #+#    #+#             */
-/*   Updated: 2024/12/24 21:10:52 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 16:38:08 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	count_lines_in_file(char *path)
 	line_count = 0;
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
-		 s_faulty_3(strerror(errno));
+		 is_faulty_4(strerror(errno));
 	else
 	{
 		line = get_next_line(fd);
@@ -48,7 +48,7 @@ static void	init_map_array(int row, int column, int i, t_game_data *data)
 		if (!data->mapinfo.file[row])
 		{
 			  is_faulty_2("memory allocation failed\n");
-			return (free_thing((void **)data->mapinfo.file));
+			return (free_things((void **)data->mapinfo.file));
 		}
 		while (line[i] != '\0')
 			data->mapinfo.file[row][column++] = line[i++];
@@ -80,7 +80,7 @@ void	load_map_data(char *path, t_game_data *data)
 		is_faulty_2("failed memory allocation");
 	data->mapinfo.fd = open(path, O_RDONLY);
 	if (data->mapinfo.fd < 0)
-		is_faulty_2(strerror(errno));
+		is_faulty_4(strerror(errno));
 	else
 	{
 		init_map_array(row, column, i, data);

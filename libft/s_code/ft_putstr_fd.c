@@ -6,11 +6,11 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 20:40:06 by pokpalae          #+#    #+#             */
-/*   Updated: 2023/11/30 19:57:50 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 16:23:08 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 #include <unistd.h>
 
 void	ft_putstr_fd(char *s, int fd)

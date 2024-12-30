@@ -6,12 +6,11 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 17:20:40 by pokpalae          #+#    #+#             */
-/*   Updated: 2023/11/30 19:53:31 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 16:23:44 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
+#include "../includes/libft.h"
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	needle_len;

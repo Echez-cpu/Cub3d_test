@@ -6,7 +6,7 @@
 #    By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/27 03:26:25 by pokpalae          #+#    #+#              #
-#    Updated: 2024/12/27 03:26:29 by pokpalae         ###   ########.fr        #
+#    Updated: 2024/12/30 14:54:01 by pokpalae         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,14 +35,16 @@ SRC		= \
 	parsing/set_info_2.c \
 	parsing/set_info_3.c \
 	parsing/set_map.c \
-	parsing/tester.c \
+	parsing/camera_angles.c \
 	parsing/utils.c \
-	parsing/cub3d.c \
+	parsing/cam_position.c \
 	parsing/validity_check_1.c \
 	parsing/validity_check_block.c\
+	parsing/texture_encoded.c\
 	handle_render.c \
 	keyboard_handler.c \
 	mlx_folder.c \
+	setup_textures.c \
 	test.c
 SRCS	= $(addprefix ,$(SRC))
 
@@ -63,10 +65,10 @@ $(OBJ_PATH):
 	mkdir -p $(OBJ_PATH)parsing
 
 $(OBJ_PATH)%.o: %.c
-	$(CC) $(CFLAGS) -DBONUS=$(BONUS) -c $< -o $@ $(INC)
+	$(CC) $(CFLAGS) -c $< -o $@ $(INC)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -DBONUS=$(BONUS) $(OBJS) -o $@ $(LIBFT) $(MLX) -lXext -lX11 -lm
+	$(CC) $(CFLAGS) $(OBJS) -o $@ $(LIBFT) $(MLX) -lXext -lX11 -lm
 
 $(LIBFT):
 	make -sC $(LIBFT_PATH)

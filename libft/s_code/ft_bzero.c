@@ -6,11 +6,11 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 16:41:09 by pokpalae          #+#    #+#             */
-/*   Updated: 2023/11/30 19:50:08 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 16:20:48 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

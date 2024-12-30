@@ -6,12 +6,11 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 16:32:29 by pokpalae          #+#    #+#             */
-/*   Updated: 2023/12/02 19:22:32 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 16:21:32 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
+#include "../includes/libft.h"
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*new_nd;

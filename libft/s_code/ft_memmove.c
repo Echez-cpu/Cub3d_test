@@ -6,11 +6,11 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 17:49:21 by pokpalae          #+#    #+#             */
-/*   Updated: 2023/12/01 17:05:39 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 16:22:54 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 static void	backward_copy(unsigned char *destination,
 				const unsigned char *source, size_t len);

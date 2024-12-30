@@ -6,11 +6,11 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 23:13:23 by pokpalae          #+#    #+#             */
-/*   Updated: 2024/12/24 23:13:27 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 16:24:37 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 int	ft_malloc_count(char *stock)
 {

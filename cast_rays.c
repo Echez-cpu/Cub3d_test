@@ -15,20 +15,20 @@ int generate_rays(t_field_of_view *camera, t_game_data *data)
 		initialize_ray_traversal(&view_ray, camera);
 		step_through_grid(data, &view_ray);
 		compute_wall_visualization(&view_ray, data, camera);
-		// map_texture_to_ray_hit(data, &data->texinfo, &view_ray, i);
+		map_texture_to_ray_hit(data, &data->texinfo, &view_ray, i);
 
-	int y = view_ray.draw_start;
-	//int color = 0xFFFFFF / (view_ray.wall_dist + 1);
-	while (y < view_ray.draw_end)
-	{
-    		if (view_ray.side == 0)
-        	data->texture_pixels[y][i] = 0xFF0000; // Red for vertical walls
-    		else
-        	data->texture_pixels[y][i] = 0x00FF00; // Green for horizontal walls
+		// int y = view_ray.draw_start;
+		// //int color = 0xFFFFFF / (view_ray.wall_dist + 1);
+		// while (y < view_ray.draw_end)
+		// {
+    	// 	if (view_ray.side == 0)
+        // 	data->texture_pixels[y][i] = 0xFF0000; // Red for vertical walls
+    	// 	else
+        // 	data->texture_pixels[y][i] = 0x00FF00; // Green for horizontal walls
 
-    		// data->texture_pixels[y][i] = color;
-    		y++;
-}
+    	// 	// data->texture_pixels[y][i] = color;
+    	// 	y++;
+		// }
 		
 		i++;
 	}
@@ -62,8 +62,6 @@ void	map_texture_to_ray_hit(t_game_data *data, t_texinfo *txture, t_cast_ray *ra
 		y++;
 	}
 }
-
-
 
 
 void	set_texture_direction(t_game_data *data, t_cast_ray *ray)

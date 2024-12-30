@@ -6,12 +6,11 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 23:13:27 by pokpalae          #+#    #+#             */
-/*   Updated: 2023/11/30 19:51:56 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 16:23:01 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
+#include "../includes/libft.h"
 void	ft_putendl_fd(char *s, int fd)
 {
 	if (!s)

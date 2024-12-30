@@ -32,7 +32,7 @@ static unsigned long	encode_rgb_as_int(int *rgb_array)
 }
 
 
-int	validate_game_assets(t_game_data *data, t_texinfo *text)
+int	validate_game_assets(t_texinfo *text)
 {
 	if (!text->north || !text->south || !text->west
 		|| !text->east)

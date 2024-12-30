@@ -6,7 +6,7 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 17:53:04 by pokpalae          #+#    #+#             */
-/*   Updated: 2024/12/24 23:07:25 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 17:59:19 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@
 
 
 
-# define WIN_HEIGHT 200
-# define WIN_WIDTH 320
+# define WIN_HEIGHT 1000
+# define WIN_WIDTH 1000
 
 # define TEXTURE_SIZE 64
-# define MOVESPEED 0.0525
-# define TURN_RATE 0.515
+# define MOVESPEED 0.0425
+# define TURN_RATE 0.015
 
 #define KEY_ESC		65307
 #define	KEY_PRESS	2
@@ -170,15 +170,28 @@ typedef struct s_game_data
 int	validity_check(t_game_data *data, char **argv);
 int	end_game(t_game_data *data);
 int	extract_map_data(t_game_data *data, char **map);
-int	set_floor_ceiling_colors(t_game_data *data, t_texinfo *textures, char *line, int j);
+int	set_floor_ceiling_colors(t_texinfo *textures, char *line, int j);
 int	*convert_string_to_rgb(char *line);
 int	*convert_string_to_rgb(char *line);
 int	map_constructor(t_game_data *data, char **file, int i);
 int	inspect_map_characters(t_game_data *data, char **map_grid);
 int	confirm_map_enclosure(t_mapinfo *map, char **map_grid);
 int	locate_cam_and_validate(t_game_data *data, char **map_grid);
-
-
+int is_faulty(char *str);
+int is_faulty_2(char *str);
+int is_faulty_3(char *str);
+int is_faulty_4(char *str);
+int	ensure_no_data_after_map(t_mapinfo *map);
+size_t	find_max_row_width(t_mapinfo *map, int i);
+void exit_cleanly(t_game_data *info, int code);
+int	cleanup_resources(t_game_data *info);
+int	set_fd(char *str, bool cub);
+int	verify_map_integrity(t_game_data *data, char **map_grid);
+int	validate_game_assets(t_texinfo *text);
+void	init_camera_angles(t_game_data *data);
+void	load_map_data(char *path, t_game_data *data);
+void	config_texture_img(t_game_data *data, t_img *image, char *path);
+void	init_empty_image(t_img *img);
 
 // ray casting functions
 int	update_graphics(t_game_data *data);
@@ -193,7 +206,7 @@ bool	is_position_free_of_walls(t_game_data *data, double x, double y);
 int generate_rays(t_field_of_view *camera, t_game_data *data);
 
 void	map_texture_to_ray_hit(t_game_data *data, t_texinfo *txture, t_cast_ray *ray, int x);
-
+ bool	is_position_allowed(t_game_data *data, double x, double y);
 void	set_texture_direction(t_game_data *data, t_cast_ray *ray);
 int	update_graphics(t_game_data *data);
 void	free_things(void **tab);

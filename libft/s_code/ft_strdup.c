@@ -6,11 +6,11 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 15:46:21 by pokpalae          #+#    #+#             */
-/*   Updated: 2023/11/30 19:52:37 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 16:23:18 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 #include <stdlib.h>
 
 char	*ft_strdup(char *s1)

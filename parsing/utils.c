@@ -6,7 +6,7 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 14:53:11 by junhhong          #+#    #+#             */
-/*   Updated: 2024/12/24 21:26:37 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 15:15:11 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int is_faulty(char *str)
 {
-	ft_putendl_fd(str, 2);
+	ft_putstr_fd(str, 2);
 	return (1);
 }
 
@@ -32,7 +32,7 @@ int is_faulty_2(char *str)
 }
 
 
-int is_faulty_3(char *str)
+int is_faulty_4(char *str)
 {
 	ft_putendl_fd(str, 2);
 	return (errno);

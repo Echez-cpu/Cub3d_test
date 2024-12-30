@@ -6,14 +6,14 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 03:26:43 by pokpalae          #+#    #+#             */
-/*   Updated: 2024/12/27 03:26:47 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 14:19:52 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "cub.h"
 
-static int	key_press(int key, t_game_data *press)
+ int	key_press(int key, t_game_data *press)
 {
 	if (key == KEY_W)
 	press->first_person.move_y = 5;
@@ -34,7 +34,7 @@ static int	key_press(int key, t_game_data *press)
 
 
 
-static int	reset_keyPress_flags(int key, t_game_data *press)
+ int	reset_keyPress_flags(int key, t_game_data *press)
 {
 	if (key == KEY_ESC)
 		end_game(press);

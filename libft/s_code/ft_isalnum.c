@@ -6,11 +6,11 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:28:09 by pokpalae          #+#    #+#             */
-/*   Updated: 2023/12/01 16:20:51 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 16:20:27 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 int	ft_isalnum(int c)
 {

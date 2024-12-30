@@ -6,12 +6,28 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 15:48:42 by junhhong          #+#    #+#             */
-/*   Updated: 2024/12/27 03:31:18 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 18:18:08 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "../cub.h"
+
+
+// static int	ft_strcmp(const char *s1, const char *s2)
+// {
+// 	size_t	i;
+
+// 	i = 0;
+// 	while (s1[i] != '\0' && s2[i] != '\0')
+// 	{
+// 		if ((unsigned char)s1[i] != (unsigned char)s2[i])
+// 			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+// 		i ++ ;
+// 	}
+// 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+// }
+
 
 static bool	is_folder(char *str)
 {
@@ -34,7 +50,7 @@ static int	extension_check(char *path)
 	char	*tmp;
 
 	tmp = ft_strrchr(path, '.');
-	if (!tmp || ft_strcmp(tmp, ".cub") != 0)
+	if (!tmp || strcmp(tmp, ".cub") != 0)     // change to ft_strcmp
 	{
 		ft_putstr_fd("Invalid file extension\n", 2);
 		return (0);
@@ -48,7 +64,7 @@ static int	check_xpm(char *path)
 	 char	*tmp;
 
 	tmp = ft_strrchr(path, '.');
-	if (!tmp || ft_strcmp(tmp, ".xpm") != 0)
+	if (!tmp || strcmp(tmp, ".xpm") != 0)     // change to ft_strcmp
 	{
 		ft_putstr_fd("Invalid file extension\n", 2);
 		return (0);

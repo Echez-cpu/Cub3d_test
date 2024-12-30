@@ -6,11 +6,11 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:37:34 by pokpalae          #+#    #+#             */
-/*   Updated: 2023/11/30 19:51:05 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 16:19:38 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 #include <stdlib.h>
 
 static int	digit_count(int n);

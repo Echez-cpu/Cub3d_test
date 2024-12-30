@@ -6,7 +6,7 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 03:26:02 by pokpalae          #+#    #+#             */
-/*   Updated: 2024/12/27 03:26:07 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 15:01:36 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,28 @@
 #include "cub.h"
 
 
-static int	*get_texture_from_xpm(t_game_data *data, char *path)
+void	config_texture_img(t_game_data *data, t_img *image, char *path)
+{
+	init_empty_image(image);
+	image->img = mlx_xpm_file_to_image(data->mlx, path, &data->texinfo.size,
+			&data->texinfo.size);
+	if (image->img == NULL)
+		exit_cleanly(data, is_faulty("Error: image creation failed\n"));
+	image->address = (int *)mlx_get_data_addr(image->img, &image->pixel_bits,
+			&image->size_line, &image->endian);
+	return ;
+}
+
+
+
+ int	*get_texture_from_xpm(t_game_data *data, char *path)
 {
 	t_img	tmp;
 	int		*buffer;
 	int		x;
 	int		y;
 
-	init_texture_img(data, &tmp, path);
+	config_texture_img(data, &tmp, path);
 	buffer = ft_calloc(1,
 			sizeof * buffer * data->texinfo.size * data->texinfo.size);
 	if (!buffer)

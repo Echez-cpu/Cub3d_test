@@ -6,15 +6,15 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:50:52 by pokpalae          #+#    #+#             */
-/*   Updated: 2023/11/30 19:50:58 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 17:49:09 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 int	ft_isprint(int c)
 {
-	if (c >= 32 && c <= 126)
+	if (c >= 33 && c <= 126)
 	{
 		return (1);
 	}

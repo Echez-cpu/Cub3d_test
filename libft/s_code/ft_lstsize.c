@@ -6,11 +6,11 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 20:05:10 by pokpalae          #+#    #+#             */
-/*   Updated: 2023/12/02 20:23:07 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 16:21:35 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 int	ft_lstsize(t_list *lst)
 {

@@ -6,13 +6,53 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 15:52:35 by junhhong          #+#    #+#             */
-/*   Updated: 2024/12/24 16:57:50 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 13:51:29 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub.h"
 
-int	set_floor_ceiling_colors(t_game_data *data, t_texinfo *textures, char *line, int j)
+
+
+bool	is_non_numeric(char *str)
+{
+	int		i;
+	bool	not_found;
+
+	i = 0;
+	not_found = 1;
+	while (str[i])
+	{
+		if (ft_isdigit(str[i]) == 1)
+			not_found = 0;
+		i++;
+	}
+	return (not_found);
+}
+
+int	*populate_rgb_array(char **rgb_tokens, int *rgb)
+{
+	int		i;
+
+	i = -1;
+	while (rgb_tokens[++i])
+	{
+		rgb[i] = ft_atoi(rgb_tokens[i]);
+		if (rgb[i] == -1 || is_non_numeric(rgb_tokens[i]) == 1)
+		{
+			free_things((void **)rgb_tokens);
+			free(rgb);
+			return (0);
+		}
+	}
+	free_things((void **)rgb_tokens);
+	return (rgb);
+}
+
+
+
+
+int	set_floor_ceiling_colors(t_texinfo *textures, char *line, int j)
 {
 	if (line[j + 1] && ft_isprint(line[j + 1]))
 		return(is_faulty("invalid floor or celing colours"));
@@ -59,41 +99,3 @@ int	set_floor_ceiling_colors(t_game_data *data, t_texinfo *textures, char *line,
 	return (populate_rgb_array(rgb_tokens, rgb));
 }
 
-
-
-
- int	*populate_rgb_array(char **rgb_tokens, int *rgb)
-{
-	int		i;
-
-	i = -1;
-	while (rgb_tokens[++i])
-	{
-		rgb[i] = ft_atoi(rgb_tokens[i]);
-		if (rgb[i] == -1 || is_non_numeric(rgb_tokens[i]) == 1)
-		{
-			free_things((void **)rgb_tokens);
-			free(rgb);
-			return (0);
-		}
-	}
-	free_things((void **)rgb_tokens);
-	return (rgb);
-}
-
-
- bool	is_non_numeric(char *str)
-{
-	int		i;
-	bool	not_found;
-
-	i = 0;
-	not_found = 1;
-	while (str[i])
-	{
-		if (ft_isdigit(str[i]) == 1)
-			not_found = 0;
-		i++;
-	}
-	return (not_found);
-}

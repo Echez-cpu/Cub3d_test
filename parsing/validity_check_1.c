@@ -6,7 +6,7 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 15:17:45 by junhhong          #+#    #+#             */
-/*   Updated: 2024/12/24 22:55:10 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 14:17:13 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void exit_cleanly(t_game_data *info, int code)
 		return (cleanup_resources(info));   
 	if (verify_map_integrity(info, info->map) == FAIL) 
 		return (cleanup_resources(info));
-	if (validate_game_assets(info, &info->texinfo) == FAIL)
+	if (validate_game_assets(&info->texinfo) == FAIL)
 		return (cleanup_resources(info));
 	init_camera_angles(info);
 	return (0);

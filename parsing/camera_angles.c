@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tester.c                                           :+:      :+:    :+:   */
+/*   .c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -28,7 +28,7 @@ size_t	find_max_row_width(t_mapinfo *map, int i)
 }
 
 
-static void	configure_north_south_view(t_field_of_view *cam)
+static void	config_north_south_view(t_field_of_view *cam)
 {
 	if (cam->dir == 'S')
 	{

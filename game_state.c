@@ -6,27 +6,11 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 03:27:06 by pokpalae          #+#    #+#             */
-/*   Updated: 2024/12/27 03:27:11 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 16:46:39 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
-
-void	setup_game_state(t_game_data *data)
-{
-	data->mlx = NULL;
-	data->win = NULL;
-	data->win_height = WIN_HEIGHT;
-	data->win_width = WIN_WIDTH;
-	init_camera(&data->first_person);
-	init_txtureinfo(&data->texinfo);
-	data->map = NULL;
-	init_mapinfo(&data->mapinfo);
-	init_empty_image(&data->minimap);
-	data->texture_pixels = NULL;
-	data->textures = NULL;
-}
-
 
 static void	init_camera(t_field_of_view *cam)
 {
@@ -83,3 +67,21 @@ void	init_empty_image(t_img *img)
 	img->size_line = 0;
 	img->endian = 0;
 }
+
+
+void	setup_game_state(t_game_data *data)
+{
+	data->mlx = NULL;
+	data->win = NULL;
+	data->win_height = WIN_HEIGHT;
+	data->win_width = WIN_WIDTH;
+	init_camera(&data->first_person);
+	init_txtureinfo(&data->texinfo);
+	data->map = NULL;
+	init_mapinfo(&data->mapinfo);
+	init_empty_image(&data->minimap);
+	data->texture_pixels = NULL;
+	data->textures = NULL;
+}
+
+

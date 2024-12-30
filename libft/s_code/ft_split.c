@@ -6,11 +6,11 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 12:25:13 by pokpalae          #+#    #+#             */
-/*   Updated: 2023/11/30 19:52:18 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 16:23:11 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 #include <stdlib.h>
 
 static char	**free_array(char **ptr, int i)

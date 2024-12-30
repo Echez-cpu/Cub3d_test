@@ -6,11 +6,11 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 13:41:57 by pokpalae          #+#    #+#             */
-/*   Updated: 2023/12/01 16:12:17 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 16:20:54 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 int	ft_isalpha(int c)
 {

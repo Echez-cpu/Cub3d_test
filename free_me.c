@@ -6,7 +6,7 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 03:27:15 by pokpalae          #+#    #+#             */
-/*   Updated: 2024/12/27 03:27:18 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 13:35:24 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,23 @@ void	free_things(void **tab)
 		tab = NULL;
 	}
 }
+
+void	cleanup_textures(t_texinfo *textures)
+{
+	if (textures->north)
+		free(textures->north);
+	if (textures->south)
+		free(textures->south);
+	if (textures->west)
+		free(textures->west);
+	if (textures->east)
+		free(textures->east);
+	if (textures->floor)
+		free(textures->floor);
+	if (textures->ceiling)
+		free(textures->ceiling);
+}
+
 
 static void	destroy_map_data(t_game_data *data)
 {
@@ -54,19 +71,3 @@ int	cleanup_resources(t_game_data *info)
 }
 
 
-
- void	cleanup_textures(t_texinfo *textures)
-{
-	if (textures->north)
-		free(textures->north);
-	if (textures->south)
-		free(textures->south);
-	if (textures->west)
-		free(textures->west);
-	if (textures->east)
-		free(textures->east);
-	if (textures->floor)
-		free(textures->floor);
-	if (textures->ceiling)
-		free(textures->ceiling);
-}

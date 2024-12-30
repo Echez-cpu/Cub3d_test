@@ -6,12 +6,11 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 16:27:58 by pokpalae          #+#    #+#             */
-/*   Updated: 2023/11/30 19:51:21 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 16:22:49 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
+#include "../includes/libft.h"
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	const unsigned char	*s1_help;

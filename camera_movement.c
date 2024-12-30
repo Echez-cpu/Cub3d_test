@@ -6,34 +6,15 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 03:28:24 by pokpalae          #+#    #+#             */
-/*   Updated: 2024/12/27 03:28:33 by pokpalae         ###   ########.fr       */
+/*   Updated: 2024/12/30 13:33:13 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "cub.h"
 
-int	camera_spin(t_game_data *data)
-{
-	int	moved;
 
-	moved = 0;
-	if (data->first_person.move_y == 5)
-		moved += propel_forward(data);
-	if (data->first_person.move_y == -5)
-		moved += propel_backward(data);
-	if (data->first_person.move_x == -5)
-		moved += glide_left(data);
-	if (data->first_person.move_x == 5)
-		moved += glide_right(data);
-	if (data->first_person.rotate != 0)
-		moved += rotate_camera(data, data->first_person.rotate);
-	return (moved);
-}
-
-
-
- int	propel_forward(t_game_data *data)
+int	propel_forward(t_game_data *data)
 {
 	double	i;
 	double	j;
@@ -88,6 +69,25 @@ int	rotate_camera(t_game_data *data, double rotdir)
 	turn_rate = TURN_RATE * rotdir;
 	shifted += apply_turn(data, turn_rate);
 	return (shifted);
+}
+
+
+int	camera_spin(t_game_data *data)
+{
+	int	moved;
+
+	moved = 0;
+	if (data->first_person.move_y == 5)
+		moved += propel_forward(data);
+	if (data->first_person.move_y == -5)
+		moved += propel_backward(data);
+	if (data->first_person.move_x == -5)
+		moved += glide_left(data);
+	if (data->first_person.move_x == 5)
+		moved += glide_right(data);
+	if (data->first_person.rotate != 0)
+		moved += rotate_camera(data, data->first_person.rotate);
+	return (moved);
 }
 
 
