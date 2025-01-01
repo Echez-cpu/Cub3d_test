@@ -6,7 +6,7 @@
 #    By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/27 03:26:25 by pokpalae          #+#    #+#              #
-#    Updated: 2025/01/01 16:41:57 by pokpalae         ###   ########.fr        #
+#    Updated: 2025/01/01 17:39:03 by pokpalae         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,12 +24,12 @@ LIBFT_NAME	= libft.a
 LIBFT		= $(LIBFT_PATH)$(LIBFT_NAME)
 
 SRC		= \
-	main.c \
-	cam_move.c \
-	camera_movement.c \
-	cast_rays.c \
-	game_state.c \
-	free_me.c \
+	src/main.c \
+	src/cam_move.c \
+	src/camera_movement.c \
+	src/cast_rays.c \
+	src/game_state.c \
+	src/free_me.c \
 	parsing/mapfile_check.c \
 	parsing/set_info_1.c \
 	parsing/set_info_2.c \
@@ -41,12 +41,12 @@ SRC		= \
 	parsing/validity_check_1.c \
 	parsing/validity_check_block.c\
 	parsing/texture_encoded.c\
-	handle_render.c \
-	keyboard_handler.c \
-	mlx_folder.c \
-	setup_textures.c \
-	ray_traversal.c \
-	cam_move_2.c
+	src/handle_render.c \
+	src/keyboard_handler.c \
+	src/mlx_folder.c \
+	src/setup_textures.c \
+	src/ray_traversal.c \
+	src/cam_move_2.c
 SRCS	= $(addprefix ,$(SRC))
 
 OBJ_PATH	= ./objects/
