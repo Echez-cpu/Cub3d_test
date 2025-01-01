@@ -6,13 +6,11 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 03:26:02 by pokpalae          #+#    #+#             */
-/*   Updated: 2024/12/30 15:01:36 by pokpalae         ###   ########.fr       */
+/*   Updated: 2025/01/01 17:15:58 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "cub.h"
-
 
 void	config_texture_img(t_game_data *data, t_img *image, char *path)
 {
@@ -26,9 +24,7 @@ void	config_texture_img(t_game_data *data, t_img *image, char *path)
 	return ;
 }
 
-
-
- int	*get_texture_from_xpm(t_game_data *data, char *path)
+int	*get_texture_from_xpm(t_game_data *data, char *path)
 {
 	t_img	tmp;
 	int		*buffer;
@@ -36,8 +32,8 @@ void	config_texture_img(t_game_data *data, t_img *image, char *path)
 	int		y;
 
 	config_texture_img(data, &tmp, path);
-	buffer = ft_calloc(1,
-			sizeof * buffer * data->texinfo.size * data->texinfo.size);
+	buffer = ft_calloc(1, sizeof(*buffer) * data->texinfo.size
+			* data->texinfo.size);
 	if (!buffer)
 		exit_cleanly(data, is_faulty("Error: memory allocation failed\n"));
 	y = 0;
@@ -46,8 +42,8 @@ void	config_texture_img(t_game_data *data, t_img *image, char *path)
 		x = 0;
 		while (x < data->texinfo.size)
 		{
-			buffer[y * data->texinfo.size + x]
-				= tmp.address[y * data->texinfo.size + x];
+			buffer[y * data->texinfo.size + x] = tmp.address[y
+				* data->texinfo.size + x];
 			++x;
 		}
 		y++;
@@ -56,10 +52,9 @@ void	config_texture_img(t_game_data *data, t_img *image, char *path)
 	return (buffer);
 }
 
-
 void	configure_textures(t_game_data *data)
 {
-	data->textures = ft_calloc(5, sizeof * data->textures);
+	data->textures = ft_calloc(5, sizeof(*data->textures));
 	if (!data->textures)
 		exit_cleanly(data, is_faulty("Error: memory allocation failed\n"));
 	data->textures[NORTH] = get_texture_from_xpm(data, data->texinfo.north);

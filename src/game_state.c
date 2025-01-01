@@ -6,7 +6,7 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 03:27:06 by pokpalae          #+#    #+#             */
-/*   Updated: 2024/12/30 16:46:39 by pokpalae         ###   ########.fr       */
+/*   Updated: 2025/01/01 17:15:42 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ static void	init_camera(t_field_of_view *cam)
 	cam->rotate = 0;
 }
 
-
-
 void	init_txtureinfo(t_texinfo *textures)
 {
 	textures->north = NULL;
@@ -46,8 +44,7 @@ void	init_txtureinfo(t_texinfo *textures)
 	textures->y = 0;
 }
 
-
- void	init_mapinfo(t_mapinfo *mapinfo)
+void	init_mapinfo(t_mapinfo *mapinfo)
 {
 	mapinfo->fd = 0;
 	mapinfo->line_count = 0;
@@ -58,7 +55,6 @@ void	init_txtureinfo(t_texinfo *textures)
 	mapinfo->end_of_map_index = 0;
 }
 
-
 void	init_empty_image(t_img *img)
 {
 	img->img = NULL;
@@ -67,7 +63,6 @@ void	init_empty_image(t_img *img)
 	img->size_line = 0;
 	img->endian = 0;
 }
-
 
 void	setup_game_state(t_game_data *data)
 {
@@ -83,5 +78,3 @@ void	setup_game_state(t_game_data *data)
 	data->texture_pixels = NULL;
 	data->textures = NULL;
 }
-
-

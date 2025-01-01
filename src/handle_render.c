@@ -6,10 +6,9 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 21:31:23 by pokpalae          #+#    #+#             */
-/*   Updated: 2024/12/30 14:19:06 by pokpalae         ###   ########.fr       */
+/*   Updated: 2025/01/01 17:15:45 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "cub.h"
 
@@ -22,7 +21,6 @@ int	update_graphics(t_game_data *data)
 	return (0);
 }
 
-
 void	draw_graphics(t_game_data *data)
 {
 	allocate_pixel_memory(data);
@@ -31,7 +29,6 @@ void	draw_graphics(t_game_data *data)
 	paint_frame(data);
 }
 
-
 void	allocate_pixel_memory(t_game_data *data)
 {
 	int	i;
@@ -39,23 +36,21 @@ void	allocate_pixel_memory(t_game_data *data)
 	if (data->texture_pixels)
 		free_things((void **)data->texture_pixels);
 	data->texture_pixels = ft_calloc(data->win_height + 1,
-			sizeof * data->texture_pixels);
+			sizeof(*data->texture_pixels));
 	if (!data->texture_pixels)
 		exit_cleanly(data, is_faulty("Error: memory allocation failed\n"));
 	i = 0;
 	while (i < data->win_height)
 	{
 		data->texture_pixels[i] = ft_calloc(data->win_width + 1,
-				sizeof * data->texture_pixels);
+				sizeof(*data->texture_pixels));
 		if (!data->texture_pixels[i])
 		{
 			exit_cleanly(data, is_faulty("Error: memory allocation failed\n"));
 		}
-			i++;
+		i++;
 	}
 }
-
-
 
 void	paint_frame(t_game_data *data)
 {
@@ -79,4 +74,3 @@ void	paint_frame(t_game_data *data)
 	mlx_put_image_to_window(data->mlx, data->win, image.img, 0, 0);
 	mlx_destroy_image(data->mlx, image.img);
 }
-

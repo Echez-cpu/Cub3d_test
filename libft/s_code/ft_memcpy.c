@@ -6,11 +6,12 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 16:49:56 by pokpalae          #+#    #+#             */
-/*   Updated: 2024/12/30 16:22:52 by pokpalae         ###   ########.fr       */
+/*   Updated: 2025/01/01 17:24:14 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
+
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	unsigned char		*destination;

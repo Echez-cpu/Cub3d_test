@@ -1,6 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   texture_encoded.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/01 16:46:10 by pokpalae          #+#    #+#             */
+/*   Updated: 2025/01/01 16:46:11 by pokpalae         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../cub.h"
-
 
 static int	rgb_bounds_checker(int *rgb)
 {
@@ -10,12 +20,11 @@ static int	rgb_bounds_checker(int *rgb)
 	while (x < 3)
 	{
 		if (rgb[x] < 0 || rgb[x] > 255)
-			return(is_faulty("Error: invalid RGB colour\n"));
+			return (is_faulty("Error: invalid RGB colour\n"));
 		x++;
 	}
 	return (0);
 }
-
 
 static unsigned long	encode_rgb_as_int(int *rgb_array)
 {
@@ -31,22 +40,18 @@ static unsigned long	encode_rgb_as_int(int *rgb_array)
 	return (result);
 }
 
-
 int	validate_game_assets(t_texinfo *text)
 {
-	if (!text->north || !text->south || !text->west
-		|| !text->east)
-		return(is_faulty("Error: texture is missing\n"));
+	if (!text->north || !text->south || !text->west || !text->east)
+		return (is_faulty("Error: texture is missing\n"));
 	if (!text->floor || !text->ceiling)
-		return(is_faulty("Error: colour (ceiling and floor) is missing\n"));
-	if (set_fd(text->north, false) == 1
-		|| set_fd(text->south, false) == 1
-		|| set_fd(text->west, false) == 1
-		|| set_fd(text->east, false) == 1
+		return (is_faulty("Error: colour (ceiling and floor) is missing\n"));
+	if (set_fd(text->north, false) == 1 || set_fd(text->south, false) == 1
+		|| set_fd(text->west, false) == 1 || set_fd(text->east, false) == 1
 		|| rgb_bounds_checker(text->floor) == 1
 		|| rgb_bounds_checker(text->ceiling) == 1)
 		return (FAIL);
-	 text->hex_floor = encode_rgb_as_int(text->floor);
-	 text->hex_ceiling = encode_rgb_as_int(text->ceiling);
+	text->hex_floor = encode_rgb_as_int(text->floor);
+	text->hex_ceiling = encode_rgb_as_int(text->ceiling);
 	return (0);
 }

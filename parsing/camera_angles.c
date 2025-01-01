@@ -12,7 +12,6 @@
 
 #include "../cub.h"
 
-
 size_t	find_max_row_width(t_mapinfo *map, int i)
 {
 	size_t	find_max_width;
@@ -26,7 +25,6 @@ size_t	find_max_row_width(t_mapinfo *map, int i)
 	}
 	return (find_max_width);
 }
-
 
 static void	config_north_south_view(t_field_of_view *cam)
 {
@@ -48,7 +46,6 @@ static void	config_north_south_view(t_field_of_view *cam)
 		return ;
 }
 
-
 static void	config_east_west_view(t_field_of_view *cam)
 {
 	if (cam->dir == 'W')
@@ -68,7 +65,6 @@ static void	config_east_west_view(t_field_of_view *cam)
 	else
 		return ;
 }
-
 
 void	init_camera_angles(t_game_data *data)
 {

@@ -1,13 +1,14 @@
 
-NO textures/redbrick.xpm
-SO textures/barrel.xpm
-WE textures/eagle.xpm
+
+NO textures/bluestone.xpm
+SO textures/grass.xpm
+WE textures/mossy.xpm
 EA textures/wood.xpm
 
 F 100,100,34
 C 100, 0,50
 
-1111111111111111111111111
+11111111111111111111111111
 10000000000000000000001
 1011000000000000000001
 1001000000000000000000001

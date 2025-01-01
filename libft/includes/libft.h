@@ -6,7 +6,7 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 15:48:35 by pokpalae          #+#    #+#             */
-/*   Updated: 2024/12/24 23:22:08 by pokpalae         ###   ########.fr       */
+/*   Updated: 2025/01/01 17:22:30 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ char				*ft_substr(char const *s, unsigned int start, size_t len);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 void				ft_putchar_fd(char c, int fd);
-char	*get_next_line(int fd);
-char	*f_strchr(char *s, int c);
-char	*f_strdup(char *s1);
-char	*f_strjoin(char *s1, char *s2);
+char				*get_next_line(int fd);
+char				*f_strchr(char *s, int c);
+char				*f_strdup(char *s1);
+char				*f_strjoin(char *s1, char *s2);
 #endif

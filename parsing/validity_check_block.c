@@ -6,7 +6,7 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 15:20:34 by junhhong          #+#    #+#             */
-/*   Updated: 2024/12/30 16:38:08 by pokpalae         ###   ########.fr       */
+/*   Updated: 2025/01/01 16:43:15 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	count_lines_in_file(char *path)
 	line_count = 0;
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
-		 is_faulty_4(strerror(errno));
+		is_faulty_4(strerror(errno));
 	else
 	{
 		line = get_next_line(fd);
@@ -36,7 +36,6 @@ static int	count_lines_in_file(char *path)
 	return (line_count);
 }
 
-
 static void	init_map_array(int row, int column, int i, t_game_data *data)
 {
 	char	*line;
@@ -47,7 +46,7 @@ static void	init_map_array(int row, int column, int i, t_game_data *data)
 		data->mapinfo.file[row] = ft_calloc(ft_strlen(line) + 1, sizeof(char));
 		if (!data->mapinfo.file[row])
 		{
-			  is_faulty_2("memory allocation failed\n");
+			is_faulty_2("memory allocation failed\n");
 			return (free_things((void **)data->mapinfo.file));
 		}
 		while (line[i] != '\0')
@@ -61,8 +60,6 @@ static void	init_map_array(int row, int column, int i, t_game_data *data)
 	data->mapinfo.file[row] = NULL;
 }
 
-
-
 void	load_map_data(char *path, t_game_data *data)
 {
 	int		row;
@@ -74,8 +71,8 @@ void	load_map_data(char *path, t_game_data *data)
 	column = 0;
 	data->mapinfo.line_count = count_lines_in_file(path);
 	data->mapinfo.path = path;
-	data->mapinfo.file = ft_calloc(data->mapinfo.line_count \
-			+ 1, sizeof(char *));
+	data->mapinfo.file = ft_calloc(data->mapinfo.line_count + 1,
+			sizeof(char *));
 	if (!(data->mapinfo.file))
 		is_faulty_2("failed memory allocation");
 	data->mapinfo.fd = open(path, O_RDONLY);

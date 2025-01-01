@@ -6,12 +6,11 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 17:37:31 by junhhong          #+#    #+#             */
-/*   Updated: 2024/12/30 18:19:06 by pokpalae         ###   ########.fr       */
+/*   Updated: 2025/01/01 16:48:52 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub.h"
-
 
 static char	*decode_texture_path(char *line, int j)
 {
@@ -26,11 +25,7 @@ static char	*decode_texture_path(char *line, int j)
 		len++;
 	path = malloc(sizeof(char) * (len - j + 1));
 	if (!path)
-	{
-		printf("failed here\n");
 		return (NULL);
-	}
-		
 	i = 0;
 	while (line[j] && (line[j] != ' ' && line[j] != '\t' && line[j] != '\n'))
 		path[i++] = line[j++];
@@ -44,28 +39,6 @@ static char	*decode_texture_path(char *line, int j)
 	}
 	return (path);
 }
-
-
-
-// static int map_direction_to_texture(t_texinfo *textures, char *line, int j)
-//  {
-//     printf("Processing texture line: \"%s\"\n", line);
-//     if (line[j + 2] && ft_isprint(line[j + 2]))
-//         return (printf("Error: Unexpected character after texture specifier.\n"), ERROR);
-//     if (line[j] == 'N' && line[j + 1] == 'O' && !(textures->north))
-//         textures->north = decode_texture_path(line, j + 2);
-//     else if (line[j] == 'S' && line[j + 1] == 'O' && !(textures->south))
-//         textures->south = decode_texture_path(line, j + 2);
-//     else if (line[j] == 'W' && line[j + 1] == 'E' && !(textures->west))
-//         textures->west = decode_texture_path(line, j + 2);
-//     else if (line[j] == 'E' && line[j + 1] == 'A' && !(textures->east))
-//         textures->east = decode_texture_path(line, j + 2);
-//     else {
-//         printf("Error: Duplicate or invalid texture specifier.\n");
-//         return (ERROR);
-//     }
-//     return (0);
-// }
 
 static int	map_direction_to_texture(t_texinfo *textures, char *line, int j)
 {
@@ -84,7 +57,6 @@ static int	map_direction_to_texture(t_texinfo *textures, char *line, int j)
 	return (0);
 }
 
-
 static int	map_data_interpreter(t_game_data *data, char **map, int i, int j)
 {
 	while (map[i][j] == ' ' || map[i][j] == '\t' || map[i][j] == '\n')
@@ -94,16 +66,16 @@ static int	map_data_interpreter(t_game_data *data, char **map, int i, int j)
 		if (map[i][j + 1] && ft_isprint(map[i][j + 1])
 			&& !ft_isdigit(map[i][j]))
 		{
-			if (map_direction_to_texture(&data->texinfo, map[i], j) == ERROR)	
+			if (map_direction_to_texture(&data->texinfo, map[i], j) == ERROR)
 				return (is_faulty("invalid texture\n"));
-		    return(BREAK);
-		}	
+			return (BREAK);
+		}
 		else
 		{
 			if (set_floor_ceiling_colors(&data->texinfo, map[i], j) == ERROR)
 				return (1);
 			return (BREAK);
-		}	
+		}
 	}
 	else if (ft_isdigit(map[i][j]))
 	{
@@ -113,7 +85,6 @@ static int	map_data_interpreter(t_game_data *data, char **map, int i, int j)
 	}
 	return (CONTINUE);
 }
-
 
 int	extract_map_data(t_game_data *data, char **map)
 {
@@ -140,4 +111,3 @@ int	extract_map_data(t_game_data *data, char **map)
 	}
 	return (SUCCESS);
 }
-

@@ -6,13 +6,13 @@
 #    By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/27 03:26:25 by pokpalae          #+#    #+#              #
-#    Updated: 2024/12/30 14:54:01 by pokpalae         ###   ########.fr        #
+#    Updated: 2025/01/01 16:41:57 by pokpalae         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= cub3D
 
-CC		= gcc
+CC		= cc
 CFLAGS	= -Werror -Wextra -Wall -g3 #-fsanitize=address
 
 MLX_PATH	= minilibx-linux/
@@ -45,10 +45,10 @@ SRC		= \
 	keyboard_handler.c \
 	mlx_folder.c \
 	setup_textures.c \
-	test.c
+	ray_traversal.c \
+	cam_move_2.c
 SRCS	= $(addprefix ,$(SRC))
 
-# Objects
 OBJ_PATH	= ./objects/
 OBJ			= $(SRC:.c=.o)
 OBJS		= $(addprefix $(OBJ_PATH), $(OBJ))
@@ -80,18 +80,15 @@ $(MLX):
 bonus:
 	make all BONUS=1
 
-# Clean up build files rule
 clean:
 	rm -rf $(OBJ_PATH)
 	make -C $(LIBFT_PATH) clean
 	make -C $(MLX_PATH) clean
 
-# Remove program executable
 fclean: clean
 	rm -f $(NAME)
 	make -C $(LIBFT_PATH) fclean
 
-# Clean + remove executable
 re: fclean all
 
 .PHONY: all re clean fclean bonus

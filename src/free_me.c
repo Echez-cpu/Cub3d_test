@@ -6,10 +6,9 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 03:27:15 by pokpalae          #+#    #+#             */
-/*   Updated: 2024/12/30 13:35:24 by pokpalae         ###   ########.fr       */
+/*   Updated: 2025/01/01 17:15:40 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "cub.h"
 
@@ -46,7 +45,6 @@ void	cleanup_textures(t_texinfo *textures)
 		free(textures->ceiling);
 }
 
-
 static void	destroy_map_data(t_game_data *data)
 {
 	if (data->mapinfo.fd > 0)
@@ -56,8 +54,6 @@ static void	destroy_map_data(t_game_data *data)
 	if (data->map)
 		free_things((void **)data->map);
 }
-
-
 
 int	cleanup_resources(t_game_data *info)
 {
@@ -69,5 +65,3 @@ int	cleanup_resources(t_game_data *info)
 	destroy_map_data(info);
 	return (1);
 }
-
-

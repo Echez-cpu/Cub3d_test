@@ -6,10 +6,9 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 03:26:17 by pokpalae          #+#    #+#             */
-/*   Updated: 2024/12/27 03:26:21 by pokpalae         ###   ########.fr       */
+/*   Updated: 2025/01/01 17:15:52 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "cub.h"
 
@@ -24,7 +23,6 @@ void	setup_image(t_game_data *data, t_img *image, int width, int height)
 	return ;
 }
 
-
 void	reset_img_struct(t_img *img)
 {
 	img->img = NULL;
@@ -34,17 +32,15 @@ void	reset_img_struct(t_img *img)
 	img->endian = 0;
 }
 
-
- void	set_pixel_color(t_game_data *data, t_img *image, int x, int y)
+void	set_pixel_color(t_game_data *data, t_img *image, int x, int y)
 {
 	if (data->texture_pixels[y][x] > 0)
 		write_color_2_pixel(image, x, y, data->texture_pixels[y][x]);
 	else if (y < data->win_height / 2)
 		write_color_2_pixel(image, x, y, data->texinfo.hex_ceiling);
-	else if (y < data->win_height -1)
+	else if (y < data->win_height - 1)
 		write_color_2_pixel(image, x, y, data->texinfo.hex_floor);
 }
-
 
 void	write_color_2_pixel(t_img *image, int x, int y, int color)
 {
@@ -54,7 +50,6 @@ void	write_color_2_pixel(t_img *image, int x, int y, int color)
 	image->address[pixel] = color;
 }
 
-
 void	initialize_mlx(t_game_data *data)
 {
 	data->mlx = mlx_init();
@@ -63,6 +58,5 @@ void	initialize_mlx(t_game_data *data)
 	data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, "Cub3D");
 	if (!data->win)
 		exit_cleanly(data, is_faulty("Error: mlx window creation failed\n"));
-	
 	return ;
 }

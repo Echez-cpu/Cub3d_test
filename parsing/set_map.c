@@ -6,17 +6,16 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 12:35:50 by junhhong          #+#    #+#             */
-/*   Updated: 2024/12/24 16:57:35 by pokpalae         ###   ########.fr       */
+/*   Updated: 2025/01/01 16:46:35 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub.h"
 
-
 static int	assemble_map_grid(t_mapinfo *mapinfo, char **map_tab, int index)
 {
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
 	mapinfo->width = find_max_row_width(mapinfo, index);
 	i = 0;
@@ -25,12 +24,12 @@ static int	assemble_map_grid(t_mapinfo *mapinfo, char **map_tab, int index)
 		j = 0;
 		map_tab[i] = malloc(sizeof(char) * (mapinfo->width + 1));
 		if (!map_tab[i])
-			return(is_faulty("memory allocation failed"));
+			return (is_faulty("memory allocation failed"));
 		while (mapinfo->file[index][j] && mapinfo->file[index][j] != '\n')
 		{
 			map_tab[i][j] = mapinfo->file[index][j];
 			j++;
-		}	
+		}
 		while (j < mapinfo->width)
 			map_tab[i][j++] = '\0';
 		i++;
@@ -39,8 +38,6 @@ static int	assemble_map_grid(t_mapinfo *mapinfo, char **map_tab, int index)
 	map_tab[i] = NULL;
 	return (0);
 }
-
-
 
 static int	calculate_map_height(t_game_data *data, char **file, int i)
 {
@@ -52,7 +49,7 @@ static int	calculate_map_height(t_game_data *data, char **file, int i)
 	{
 		j = 0;
 		while (file[i][j] == ' ' || file[i][j] == '\t' || file[i][j] == '\r'
-		|| file[i][j] == '\v' || file[i][j] == '\f')
+			|| file[i][j] == '\v' || file[i][j] == '\f')
 			j++;
 		if (file[i][j] != '1')
 			break ;
@@ -62,19 +59,16 @@ static int	calculate_map_height(t_game_data *data, char **file, int i)
 	return (i - index_);
 }
 
-
-
 static int	gather_map_metadata(t_game_data *data, char **file, int i)
 {
 	data->mapinfo.height = calculate_map_height(data, file, i);
 	data->map = malloc(sizeof(char *) * (data->mapinfo.height + 1));
 	if (!data->map)
-		return(is_faulty("memory allocation failed"));
+		return (is_faulty("memory allocation failed"));
 	if (assemble_map_grid(&data->mapinfo, data->map, i) == FAIL)
 		return (1);
 	return (0);
 }
-
 
 static void	map_spaces_into_walls(t_game_data *data)
 {
@@ -86,8 +80,8 @@ static void	map_spaces_into_walls(t_game_data *data)
 	{
 		j = 0;
 		while (data->map[i][j] == ' ' || data->map[i][j] == '\t'
-		|| data->map[i][j] == '\r'
-		|| data->map[i][j] == '\v' || data->map[i][j] == '\f')
+			|| data->map[i][j] == '\r' || data->map[i][j] == '\v'
+			|| data->map[i][j] == '\f')
 			j++;
 		while (data->map[i][++j])
 		{
@@ -98,7 +92,6 @@ static void	map_spaces_into_walls(t_game_data *data)
 		i++;
 	}
 }
-
 
 int	map_constructor(t_game_data *data, char **file, int i)
 {

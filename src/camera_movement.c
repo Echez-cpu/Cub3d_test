@@ -6,71 +6,51 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 03:28:24 by pokpalae          #+#    #+#             */
-/*   Updated: 2024/12/30 13:33:13 by pokpalae         ###   ########.fr       */
+/*   Updated: 2025/01/01 17:15:34 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "cub.h"
-
 
 int	propel_forward(t_game_data *data)
 {
 	double	i;
 	double	j;
 
-	i = data->first_person.pos_x + data->first_person.dir_x * MOVESPEED;
-	j = data->first_person.pos_y + data->first_person.dir_y * MOVESPEED;
+	i = data->first_person.pos_x + data->first_person.dir_x * WALKING_SPEED;
+	j = data->first_person.pos_y + data->first_person.dir_y * WALKING_SPEED;
 	return (move_if_valid(data, i, j));
 }
 
-
-
- int	propel_backward(t_game_data *data)
+int	propel_backward(t_game_data *data)
 {
 	double	i;
 	double	j;
 
-	i = data->first_person.pos_x - data->first_person.dir_x * MOVESPEED;
-	j = data->first_person.pos_y - data->first_person.dir_y * MOVESPEED;
+	i = data->first_person.pos_x - data->first_person.dir_x * WALKING_SPEED;
+	j = data->first_person.pos_y - data->first_person.dir_y * WALKING_SPEED;
 	return (move_if_valid(data, i, j));
 }
 
-
- int	glide_left(t_game_data *data)
+int	glide_left(t_game_data *data)
 {
 	double	i;
 	double	j;
 
-	i = data->first_person.pos_x + data->first_person.dir_y * MOVESPEED;
-	j = data->first_person.pos_y - data->first_person.dir_x * MOVESPEED;
+	i = data->first_person.pos_x + data->first_person.dir_y * WALKING_SPEED;
+	j = data->first_person.pos_y - data->first_person.dir_x * WALKING_SPEED;
 	return (move_if_valid(data, i, j));
 }
 
-
-
- int	glide_right(t_game_data *data)
+int	glide_right(t_game_data *data)
 {
 	double	i;
 	double	j;
 
-	i = data->first_person.pos_x - data->first_person.dir_y * MOVESPEED;
-	j = data->first_person.pos_y + data->first_person.dir_x * MOVESPEED;
+	i = data->first_person.pos_x - data->first_person.dir_y * WALKING_SPEED;
+	j = data->first_person.pos_y + data->first_person.dir_x * WALKING_SPEED;
 	return (move_if_valid(data, i, j));
 }
-
-
-int	rotate_camera(t_game_data *data, double rotdir)
-{
-	int		shifted;
-	double	turn_rate;
-
-	shifted = 0;
-	turn_rate = TURN_RATE * rotdir;
-	shifted += apply_turn(data, turn_rate);
-	return (shifted);
-}
-
 
 int	camera_spin(t_game_data *data)
 {
@@ -89,20 +69,3 @@ int	camera_spin(t_game_data *data)
 		moved += rotate_camera(data, data->first_person.rotate);
 	return (moved);
 }
-
-
- int	apply_turn(t_game_data *data, double turn_rate)
-{
-	t_field_of_view		*cam;
-	double		tmp_i;
-
-	cam = &data->first_person;
-	tmp_i = cam->dir_x;
-	cam->dir_x = cam->dir_x * cos(turn_rate) - cam->dir_y * sin(turn_rate);
-	cam->dir_y = tmp_i * sin(turn_rate) + cam->dir_y * cos(turn_rate);
-	tmp_i = cam->plane_x;
-	cam->plane_x = cam->plane_x * cos(turn_rate) - cam->plane_y * sin(turn_rate);
-	cam->plane_y = tmp_i * sin(turn_rate) + cam->plane_y * cos(turn_rate);
-	return (1);
-}
-
