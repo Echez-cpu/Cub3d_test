@@ -6,11 +6,11 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 03:26:43 by pokpalae          #+#    #+#             */
-/*   Updated: 2025/01/01 17:15:47 by pokpalae         ###   ########.fr       */
+/*   Updated: 2025/01/01 17:55:06 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "../cub.h"
 
 int	key_press(int key, t_game_data *press)
 {

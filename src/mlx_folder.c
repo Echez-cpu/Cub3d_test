@@ -6,11 +6,11 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 03:26:17 by pokpalae          #+#    #+#             */
-/*   Updated: 2025/01/01 17:15:52 by pokpalae         ###   ########.fr       */
+/*   Updated: 2025/01/01 17:55:21 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "../cub.h"
 
 void	setup_image(t_game_data *data, t_img *image, int width, int height)
 {

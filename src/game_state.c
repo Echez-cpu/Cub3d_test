@@ -6,11 +6,11 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 03:27:06 by pokpalae          #+#    #+#             */
-/*   Updated: 2025/01/01 17:15:42 by pokpalae         ###   ########.fr       */
+/*   Updated: 2025/01/01 17:54:54 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "../cub.h"
 
 static void	init_camera(t_field_of_view *cam)
 {

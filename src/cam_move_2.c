@@ -6,11 +6,11 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/01 16:38:55 by pokpalae          #+#    #+#             */
-/*   Updated: 2025/01/01 17:15:28 by pokpalae         ###   ########.fr       */
+/*   Updated: 2025/01/01 17:54:23 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "../cub.h"
 
 int	apply_turn(t_game_data *data, double turn_rate)
 {

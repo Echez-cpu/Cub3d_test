@@ -6,11 +6,11 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 03:28:38 by pokpalae          #+#    #+#             */
-/*   Updated: 2025/01/01 17:15:31 by pokpalae         ###   ########.fr       */
+/*   Updated: 2025/01/01 17:54:26 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "../cub.h"
 
 int	move_if_valid(t_game_data *data, double i, double j)
 {

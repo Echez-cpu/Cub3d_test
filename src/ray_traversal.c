@@ -6,11 +6,11 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 03:25:16 by pokpalae          #+#    #+#             */
-/*   Updated: 2025/01/01 17:15:55 by pokpalae         ###   ########.fr       */
+/*   Updated: 2025/01/01 17:55:29 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "../cub.h"
 
 void	fill_raycastg_para(int x, t_cast_ray *ray, t_field_of_view *player)
 {

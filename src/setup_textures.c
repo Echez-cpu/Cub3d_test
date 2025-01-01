@@ -6,11 +6,11 @@
 /*   By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 03:26:02 by pokpalae          #+#    #+#             */
-/*   Updated: 2025/01/01 17:15:58 by pokpalae         ###   ########.fr       */
+/*   Updated: 2025/01/01 17:55:35 by pokpalae         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "../cub.h"
 
 void	config_texture_img(t_game_data *data, t_img *image, char *path)
 {

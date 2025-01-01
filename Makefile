@@ -6,63 +6,63 @@
 #    By: pokpalae <pokpalae@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/27 03:26:25 by pokpalae          #+#    #+#              #
-#    Updated: 2025/01/01 17:39:03 by pokpalae         ###   ########.fr        #
+#    Updated: 2025/01/01 18:08:56 by pokpalae         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= cub3D
 
-CC		= cc
-CFLAGS	= -Werror -Wextra -Wall -g3 #-fsanitize=address
+NAME        = cub3D
 
-MLX_PATH	= minilibx-linux/
-MLX_NAME	= libmlx.a
-MLX			= $(MLX_PATH)$(MLX_NAME)
+CC          = cc
+CFLAGS      = -Werror -Wextra -Wall -g3 #-fsanitize=address
 
-LIBFT_PATH	= libft/
-LIBFT_NAME	= libft.a
-LIBFT		= $(LIBFT_PATH)$(LIBFT_NAME)
+MLX_PATH    = minilibx-linux/
+MLX_NAME    = libmlx.a
+MLX         = $(MLX_PATH)$(MLX_NAME)
 
-SRC		= \
-	src/main.c \
-	src/cam_move.c \
-	src/camera_movement.c \
-	src/cast_rays.c \
-	src/game_state.c \
-	src/free_me.c \
-	parsing/mapfile_check.c \
-	parsing/set_info_1.c \
-	parsing/set_info_2.c \
-	parsing/set_info_3.c \
-	parsing/set_map.c \
-	parsing/camera_angles.c \
-	parsing/utils.c \
-	parsing/cam_position.c \
-	parsing/validity_check_1.c \
-	parsing/validity_check_block.c\
-	parsing/texture_encoded.c\
-	src/handle_render.c \
-	src/keyboard_handler.c \
-	src/mlx_folder.c \
-	src/setup_textures.c \
-	src/ray_traversal.c \
-	src/cam_move_2.c
-SRCS	= $(addprefix ,$(SRC))
+LIBFT_PATH  = libft/
+LIBFT_NAME  = libft.a
+LIBFT       = $(LIBFT_PATH)$(LIBFT_NAME)
 
-OBJ_PATH	= ./objects/
-OBJ			= $(SRC:.c=.o)
-OBJS		= $(addprefix $(OBJ_PATH), $(OBJ))
+SRC         = \
+    src/main.c \
+    src/cam_move.c \
+    src/camera_movement.c \
+    src/cast_rays.c \
+    src/game_state.c \
+    src/free_me.c \
+    parsing/mapfile_check.c \
+    parsing/set_info_1.c \
+    parsing/set_info_2.c \
+    parsing/set_info_3.c \
+    parsing/set_map.c \
+    parsing/camera_angles.c \
+    parsing/utils.c \
+    parsing/cam_position.c \
+    parsing/validity_check_1.c \
+    parsing/validity_check_block.c \
+    parsing/texture_encoded.c \
+    src/handle_render.c \
+    src/keyboard_handler.c \
+    src/mlx_folder.c \
+    src/setup_textures.c \
+    src/ray_traversal.c \
+    src/cam_move_2.c
 
-INC			= \
-	-I ./includes/ \
-	-I ./libft/ \
-	-I ./minilibx-linux/
+OBJ_PATH    = ./objects/
+OBJS        = $(SRC:%.c=$(OBJ_PATH)%.o)
 
-all: $(OBJ_PATH) $(MLX) $(LIBFT) $(NAME)
+INC         = \
+    -I ./includes/ \
+    -I ./libft/ \
+    -I ./minilibx-linux/
 
-$(OBJ_PATH):
-	mkdir -p $(OBJ_PATH)
-	mkdir -p $(OBJ_PATH)parsing
+OBJ_DIRS    = $(sort $(dir $(OBJS)))
+
+all: $(OBJ_DIRS) $(LIBFT) $(MLX) $(NAME)
+
+$(OBJ_DIRS):
+	mkdir -p $@
 
 $(OBJ_PATH)%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@ $(INC)
@@ -73,12 +73,8 @@ $(NAME): $(OBJS)
 $(LIBFT):
 	make -sC $(LIBFT_PATH)
 
-
 $(MLX):
 	make -sC $(MLX_PATH)
-
-bonus:
-	make all BONUS=1
 
 clean:
 	rm -rf $(OBJ_PATH)
